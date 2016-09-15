@@ -1,0 +1,14 @@
+			/*****************
+			Theme Name: Dr Chang
+			Theme URI: http://www.drchang.com.au/
+			Description: Dr Chang Wordpress Theme
+			Version: 1
+			Author: Guri Sandhu @ Sailor Studio
+			Author URI: http://www.sailorstudio.net
+			*****************/
+
+
+/*
+To EDIT the style sheet please use theme.scss file in root directory. Also needs to run Gulp to compress the style sheet to 'theme.css' file.
+*/
+@import 'compressed/theme.css';
