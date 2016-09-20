@@ -17,30 +17,38 @@
 <body>
 
 	<!-- header fixed -->
-	<section class="header-fixed">
-		<!-- Top menu -->
-		<section class="top-menu blue-bg desktop">
-			<div class="container">
-				<ul class="row">
-					<li><a href="#">About Dr Chang</a></li>
-					<li><a href="#">Search</a></li>
-					<li><a href="#">For Patients</a></li>
-					<li><a href="#">For Professionals</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="tel:+61283826080">+61 2 8382 6080</a></li>
-				</ul>
-			</div>
-		</section>
-		
-		<!-- Main menu and Banners -->
-		<section class="main-header">
-			<div class="container">
-				<div class="logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/logo.svg" title="Dr Chang" alt="Dr Chang Logo"></a>
-				</div>
+<header class="header-fixed">
+	<!-- Top menu -->
+	<section class="top-menu desktop">
+		<div class="container">
+			<ul>
+				<li><a href="#">About Dr Chang</a></li>
+				<li><a href="#">Search</a></li>
+				<li><a href="#">For Patients</a></li>
+				<li><a href="#">For Professionals</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="tel:+61283826080">+61 2 8382 6080</a></li>
+			</ul>
+		</div>
+	</section>
 
-				<?php include (TEMPLATEPATH . '/menu-main.php'); ?>
-
+	<!-- Main menu and Banners -->
+	<section class="main-header">
+		<div class="container">
+			<div class="logo">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/logo.svg" title="Dr Chang" alt="Dr Chang Logo"></a>
 			</div>
-		</section>
-		</section>
+
+			<?php include (TEMPLATEPATH . '/menu-main.php'); ?>
+
+		</div>
+	</section>
+</header>
+<div class="responsive-menu row">
+	<div class="container">
+		<nav>
+			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+		</nav>
+		<div class="row search"><input type="text" placeholder="Search . . ."></div>	
+	</div>
+</div>

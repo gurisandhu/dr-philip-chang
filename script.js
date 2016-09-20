@@ -28,14 +28,15 @@ $(document).ready(function($){
 
     //Responsive Menu
     $('body').append("<span class='hide-body'></span>");
+    
     $(".menu-button").click(function(){
-    	$(".responsive-menu").toggleClass("show");
+    	$(".responsive-menu").slideToggle();
     	$("body").toggleClass("toggle-menu");
     	$(".hide-body").toggleClass("toggle-hide-body");
     	$(this).toggleClass("show");
     });
     $(".hide-body").click(function(){
-    	$(".responsive-menu").removeClass("show");
+    	$(".responsive-menu").slideUp();
     	$("body").removeClass("toggle-menu");
     	$(this).removeClass("toggle-hide-body");
     	$(".menu-button").removeClass("show");
@@ -54,9 +55,22 @@ $(document).ready(function($){
       $('html, body').animate({
         scrollTop: $(".contact-form").offset().top
       }, 1000);
-      $(".responsive-menu").removeClass("show");
+      $(".responsive-menu").slideUp();
       $("body").removeClass("toggle-menu");
       $(".hide-body").removeClass("toggle-hide-body");
       $(".menu-button").removeClass("show");
     });
+
 });//end of document ready
+// Parallax
+function parallax(){
+  var layer_1 = document.getElementById('parallax');
+  var layer_2 = document.getElementById('parallax_content');
+  var layer_2_position = layer_2.style.top;
+  var remove_sign = layer_2_position.replace('%', '');
+  layer_1.style.backgroundPosition = '25%' + (-window.pageYOffset/10) + 'px';
+  var addPosition = -(window.pageYOffset/30) + 40;
+  layer_2.style.top = (addPosition) + '%';
+  layer_2.style.opacity = (1 - window.pageYOffset/450);
+}
+window.addEventListener("scroll", parallax, false);

@@ -57,7 +57,7 @@ body{
   margin: 0;
   padding: 0;
 }
-header, section, footer, aside{
+header, section, footer, aside, nav{
   float: left;
   width: 100%;
 }
@@ -80,7 +80,11 @@ header, section, footer, aside{
 }
 .col-4{
 	float: left;
-	width: 25%;
+	width: 20%;
+	margin-right: 5%;
+	&:last-child{
+		margin-right: 0;
+	}
 }
 .one-third{
 	width: 33.33%;
@@ -102,3 +106,12 @@ p{
 		padding: 0;
 	}
 }
+.table{
+	display: table;
+	width: 100%;
+}
+.table-cell{
+    	display: table-cell;
+    	vertical-align: middle;
+    	float: none;
+    }

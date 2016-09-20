@@ -30,7 +30,6 @@ gulp.task('serve', function(){
 });
 
 
-
 // Style: SASS to CSS and Minified
 
 gulp.task('styles', function() {
@@ -46,7 +45,7 @@ gulp.task('styles', function() {
 gulp.task('imagemin', function(){
 	gulp.src('../../uploads/*')
 		.pipe(imagemin())
-		.pipe(gulp.dest('../../uploads'));
+		.pipe(gulp.dest('compressed/uploads'));
 });
 
 // Watch Task
@@ -54,7 +53,7 @@ gulp.task('imagemin', function(){
 gulp.task('watch', ['styles'], function(){
 	gulp.watch('script.js', ['script']);
 	gulp.watch('*.scss', ['styles']);
-	gulp.watch('images/*', ['imagemin']);
+	gulp.watch('../../uploads/*', ['imagemin']);
 	gulp.watch("*.php").on("change", reload);
 });
 

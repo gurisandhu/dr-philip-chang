@@ -1,5 +1,5 @@
-<!-- Footer Menu -->
-<footer class="footer-menu">
+<!-- Footer -->
+<footer>
 	<div class="container">
 		<ul class="row">
 			<li><a href="#">Privacy Policy</a></li>
@@ -8,6 +8,7 @@
 		</ul>
 	</div>
 </footer>
+
 </body>
 </html>
 <?php wp_footer(); ?>
