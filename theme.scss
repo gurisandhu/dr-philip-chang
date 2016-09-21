@@ -88,6 +88,11 @@ a{
 	font-weight: 800;
 	min-width: 220px;
 }
+.but-3{
+	@extend .but-common;
+	padding: 14px;
+	font-weight: 800;
+}
 .blue{
 	background-color: $blue;
 	color: white;
@@ -472,13 +477,14 @@ p{
 	     -o-background-size: cover;
 	        background-size: cover;
 	    background-repeat: no-repeat;
-	    background-position: 50%;
+	    background-position: 25% -100px;
 	    min-height: 370px;
 	ul{
 		list-style: none;
 		float: left;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 		li{
 			float: left;
 			width: 18.4%;
@@ -497,6 +503,10 @@ p{
 	}
 	a{
 		width: 100%;
+	}
+	#parallax_content-2{
+		position: relative;
+		top: 0;
 	}
 }
 
@@ -651,14 +661,7 @@ footer{
 		}	
 	}
 }
-.swiper-slide{
-	min-height: 430px;
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	     -o-background-size: cover;
-	        background-size: cover;
-	background-position: 50%;
-}
+
 .on-scrolled{
 	.main-header{
 		padding-top: 8px;
@@ -722,13 +725,20 @@ body.customize-support{
 }
 #parallax{
 	overflow: hidden;
+	.container{
+		position: relative;
+	}
 }	 	
 #parallax_content{
-	position: fixed;
+	position: relative;
 	opacity: 1;
-	top: 40%;
-	right: 2%;
+	right: 0;
 	z-index: 0;
+}
+.front-page-intro{
+	#parallax_content{
+		top: 300px;
+	}
 }
   
 

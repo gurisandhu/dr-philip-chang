@@ -8,16 +8,43 @@ get_header();
  <!-- Template: front-page.php -->
 
 	<!-- Intro Banner -->
-	<section id="parallax" class="front-page-intro" style="background-image: url('<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/home-intro.png');">
-		<div class="container">
-			<div id="parallax_content">
-				<div class="title">
-					<h1 class="white">Philip Chang</h1> 
-					<summary class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit totam!</summary>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<section id="parallax" class="swiper-slide front-page-intro" style="background-image: url('<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/home-intro.png');">
+				<div class="container">
+					<div id="parallax_content">
+						<div class="title">
+							<h1 class="white">Philip Chang</h1> 
+							<summary class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit totam!</summary>
+						</div>
+					</div>
 				</div>
-			</div>
+			</section>	
+			<section id="parallax" class="swiper-slide front-page-intro" style="background-image: url('<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/home-intro.png');">
+				<div class="container">
+					<div id="parallax_content">
+						<div class="title">
+							<h1 class="white">Philip Chang</h1> 
+							<summary class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit totam!</summary>
+						</div>
+					</div>
+				</div>
+			</section>	
+			<section id="parallax" class="swiper-slide front-page-intro" style="background-image: url('<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/home-intro.png');">
+				<div class="container">
+					<div id="parallax_content">
+						<div class="title">
+							<h1 class="white">Philip Chang</h1> 
+							<summary class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit totam!</summary>
+						</div>
+					</div>
+				</div>
+			</section>	
 		</div>
-	</section>
+		<!-- Add Arrows -->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+	</div>
 
 	<!-- Intro Second in two columns -->
 	<section class="section-2">
@@ -35,19 +62,19 @@ get_header();
 	</section>
 
 <!-- List of services with Background image: (Such as: Surgical Experience and Expertise) -->
-<section class="section-3 table" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/surgical.jpg');">
+<section class="section-3 table" id="parallax-2" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/surgical.jpg');">
 	<div class="table-cell">
 		<div class="container">
-			<h3 class="white">Surgical Experience and Expertise</h3>
-			<ul>
-				<li><a class="but-2 transparent" href="#">Paediatric Ear</a></li>
-				<li><a class="but-2 transparent" href="#">Adult Ear</a></li>
-				<li><a class="but-2 transparent" href="#">Cochlear Implants</a></li>
-				<li><a class="but-2 transparent" href="#">Acoustic Neuroma</a></li>
-				<li><a class="but-2 transparent" href="#">Specialised Ent</a></li>
-				<li><a class="but-2 transparent" href="#">Acoustic Neuroma</a></li>
-				<li><a class="but-2 transparent" href="#">Specialised Ent</a></li>
-			</ul>
+			<div class="row" id="parallax_content-2">
+				<h3 class="white">Surgical Experience and Expertise</h3>
+				<ul>
+					<li><a class="but-3 transparent" href="#">Paediatric Ear</a></li>
+					<li><a class="but-3 transparent" href="#">Adult Ear</a></li>
+					<li><a class="but-3 transparent" href="#">Cochlear Implants</a></li>
+					<li><a class="but-3 transparent" href="#">Acoustic Neuroma</a></li>
+					<li><a class="but-3 transparent" href="#">Specialised Ent</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
