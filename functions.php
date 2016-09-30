@@ -3,6 +3,7 @@
 // *************************
 // Add links for stylesheet, fonts and scripts (Instead of inserting in <head> section or before </body>)
 // *************************
+
 function my_styles(){
 	wp_enqueue_style('drchang-font-awesome', 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.4.2');
 
@@ -10,9 +11,11 @@ function my_styles(){
 
     wp_enqueue_style('drchang-fonts-open', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
 
+    wp_enqueue_style('drchang-fonts-garamond', 'https://fonts.googleapis.com/css?family=Cormorant+Garamond:400i');
+
     wp_enqueue_style( 'drchang-swipere' , get_template_directory_uri() . '/library/swiper.min.css');
 
-     wp_enqueue_style( 'drchang-style' , get_template_directory_uri() . '/style.css');
+     wp_enqueue_style( 'drchang-style' , get_template_directory_uri() . '/style.css', array(), '2.0.0', false, 'all');
 }
 add_action('template_redirect', 'my_styles');
 //end of styles
@@ -20,7 +23,7 @@ add_action('template_redirect', 'my_styles');
 function my_scripts(){
 	wp_enqueue_script( 'drchang-swiper', get_bloginfo('template_directory') . '/library/swiper.min.js', array('jquery'), true);
 
-  wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', array('jquery'), true);
+  wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', array('jquery'), '', true);
 }
 add_action('template_redirect', 'my_scripts');
  //end of my_scripts
@@ -50,10 +53,10 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+
 // *************************
 // Contact info (ACF: option page)
 // *************************
-
 if (function_exists('acf_add_options_page')){
   $contact_info = acf_add_options_page(array(
       'page_title'  =>  'Misc.',
@@ -65,5 +68,6 @@ if (function_exists('acf_add_options_page')){
     ));
   add_filter('menu_order', 'custom_menu_order', 99);
 }
+
 
  ?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 	<!-- Intro Banner -->
-	<section class="intro">
+	<section class="intro padding-t-b">
 		<div class="container">
 			<div class="row">
 				<h1>Page not found</h1>
@@ -9,4 +9,6 @@
 			</div>
 		</div> <!-- end of container -->
 	</section>
+
+<?php include (TEMPLATEPATH . '/sub-footer.php'); ?>
 <?php get_footer(); ?>

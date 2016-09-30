@@ -10,7 +10,14 @@
 	<!-- [if IE]>
 		<script src="http://html5shiv.google.ecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '/' ) ); ?>/uploads/wp-content/favicon.ico" type="image/x-icon">
+	<!--[if gte IE 9]
+		<style type="text/css">
+		.gradient {
+		filter: none;
+		}
+		</style>
+	<![endif]-->
+	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
 	<?php wp_head(); ?>
 </head>
@@ -23,7 +30,7 @@
 		<div class="container">
 			<ul>
 				<li><a href="#">About Dr Chang</a></li>
-				<li><a href="#">Search</a></li>
+				<li><a class="toggle-button-2" href="#">Search</a></li>
 				<li><a href="#">For Patients</a></li>
 				<li><a href="#">For Professionals</a></li>
 				<li><a href="#">Contact</a></li>
@@ -43,12 +50,34 @@
 
 		</div>
 	</section>
+	<section class="toggle-content-2 search-input desktop">
+		<div class="container">
+			<form class="row" action="<?php //echo home_url('/'); ?>" method="get" role="search">
+				<input class="row" type="text" placeholder="Start typing ...">
+				<summary class="row">Press Enter to begin your search</summary>
+			</form>
+
+<!-- <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+    <label>
+        <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+        <input type="search" class="search-field"
+            placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>"
+            value="<?php echo get_search_query() ?>" name="s"
+            title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+    </label>
+    <input type="submit" class="search-submit"
+        value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
+</form> -->
+
+
+		</div>
+</section>
 </header>
 <div class="responsive-menu row">
 	<div class="container">
 		<nav>
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 		</nav>
-		<div class="row search"><input type="text" placeholder="Search . . ."></div>	
+		<div class="row search"><input type="text" placeholder="Start typing . . ."></div>	
 	</div>
 </div>

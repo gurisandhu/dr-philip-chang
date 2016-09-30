@@ -15,7 +15,7 @@
 	   color:    $color;
 	}
 }
-@mixin transition($transition){
+@mixin transition($transition){//also ADD s
 	-webkit-transition: all $transition ease;
 	   -moz-transition: all $transition ease;
 	    -ms-transition: all $transition ease;
@@ -56,12 +56,17 @@ img{
 body{
   margin: 0;
   padding: 0;
+  &:after{
+  	clear: both;
+  	display: block;
+  	content: "";
+  }
 }
 header, section, footer, aside, nav{
   float: left;
   width: 100%;
 }
-.row{
+.row{//also ADD margin bottom but no for last type
 	width:100%;
 	float: left;
 }
@@ -109,9 +114,44 @@ p{
 .table{
 	display: table;
 	width: 100%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 .table-cell{
-    	display: table-cell;
-    	vertical-align: middle;
-    	float: none;
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
     }
+.verticalAlign{
+	& > * {
+		position: relative;
+	}
+}    
+.width-70{
+	display: inline-block;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 1%;
+}
+.swiper-button-next, .swiper-button-prev{
+	width: 50%;
+	height: 100%;
+	top: 0;
+	margin-top: 0;
+	bottom: 0;
+	@include transition(.5s);
+}
+.swiper-button-prev{
+	background-position: 1%;
+	left: 0;
+	&:hover{
+		background-position: 4%;
+	}
+}
+.swiper-button-next{
+	background-position: 99%;
+	right: 0;
+	&:hover{
+		background-position: 96%;
+	}
+}

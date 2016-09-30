@@ -33,7 +33,7 @@
 		</div>
 		<div class="col-4">
 			<h5 class="white">Contact us</h5>
-			<a href="#" class="address">
+			<a target="_blank" href="https://maps.google.com/?q=Darlinghurst, NSW 2010" class="address">
 				<ul>
 					<li>Suite 1005, Level 10,</li>
 					<li>438 Victoria St,</li>
