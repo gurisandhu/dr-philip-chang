@@ -807,13 +807,19 @@ body.customize-support{
 }
 .parallax{
 	overflow: hidden;
-	@include transition(0.2s);
+	@include transition(0.1s);
+	background-color: $dark-blue;
+	-ms-background-position-y: 100%;
+	    background-position-y: 100%;
 	.container{
 		position: relative;
 	}
-}	 	
+}	
+.transition{
+	@include transition(0.3s);
+} 	
 .parallax-content{
-	@include transition(0.2s);
+	@include transition(0s);
 	position: relative;
 	opacity: 1;
 	z-index: 0;

@@ -16,7 +16,7 @@ get_header();
 				$desc 	= get_sub_field('front_slider_description');
 				$image 	= get_sub_field('front_slider_image');
 			 ?>
-			<section id="" class="swiper-slide front-page-intro parallax" style="background-image: url('<?php echo $image ["url"]; ?>');">
+			<section id="" class="swiper-slide front-page-intro parallax transition" style="background-image: url('<?php echo $image ["url"]; ?>');">
 
 				<div class="container">
 					<div id="parallax-content" class="parallax-content">

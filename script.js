@@ -30,7 +30,7 @@ $(document).ready(function(){
         prevButton: '.swiper-button-prev',
         spaceBetween: 30,
         loop: true,
-        autoplay: 3500,
+        // autoplay: 5000,
         autoplayDisableOnInteraction: false
     });
   // On scroll up header resizes
@@ -100,20 +100,23 @@ window.addEventListener("scroll", function() {
         var limitOpacityBottom  =   limitBottom + (bodyHeight/3);
         var parallaxContent   =   el.querySelector('.parallax-content');
       
-        // var parallaxContent   =   el.querySelector('.parallax-content-banner');
-        // var pcTop             =   window.getComputedStyle(parallaxContent).getPropertyValue('top');
-        //     pcTop = parseInt(pcTop.replace('px', ""));
-
+       
 
         if(scrolledHeight <= limitTop && scrolledHeight >= limitBottom) {
-          var resetScrolled = window.pageYOffset;
+          var resetScrolled             = window.pageYOffset;
           var contentTopPositionBanner  =   (resetScrolled - limitBottom)/100;
-          var contentTopPosition        = (resetScrolled - limitBottom)/300;
-          var bgPostionY = (scrolledHeight - el.offsetTop) /5;
+          var contentTopPosition        = (resetScrolled - limitBottom)/450;
+          var bgPostionY                = (scrolledHeight - el.offsetTop) /5;
 
-          if (bgPostionY >= 0){
-            el.style.backgroundPositionY= (scrolledHeight - el.offsetTop) /7 + "px";
-          }
+          
+            if (el.offsetTop < 100){
+              el.style.backgroundPositionY= (contentTopPosition*80) + "px";
+            } else if (el.offsetTop < 200) {
+              el.style.backgroundPositionY= 100 -(contentTopPosition*200) + "%";
+            } else {
+              el.style.backgroundPositionY= 100 -(contentTopPosition*20) + "%";
+            }
+          
             
             if(el.querySelector('.parallax-content') !== null){
               if (el.offsetTop < 100){
