@@ -8,7 +8,7 @@ get_header();
 
 
 <!-- Template: single.php -->
-<section class="parallax single-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/single-image.png');">
+<section class="banner parallax single-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/Dr-Chang-Set-2116.jpg');">
 	<div class="container">
 		<!-- No text here -->
 	</div>

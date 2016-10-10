@@ -7,7 +7,7 @@ get_header();
 
 
 <!-- Template: archive.php -->
-<section class="parallax category-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/category-image.png');">
+<section class="banner parallax category-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/IMG_0281.JPG');">
 	<div class="container">
 		<!-- No text here -->
 	</div>

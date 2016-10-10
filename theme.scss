@@ -47,7 +47,7 @@ body{
   margin: 0;
   -ms-overflow-x: hidden;
       overflow-x: hidden;
-  padding: 173px 0 0;
+  padding: 0;
 }
 .hide-body{
 	&.toggle-hide-body{
@@ -80,6 +80,7 @@ h1,h2,h3,h4,h5{
 	margin-top: 0;
 	margin-bottom: 15px;
 	color: $blue;
+	line-height: 1;
 }
 h1{
 	font-size: 50px;
@@ -240,8 +241,8 @@ blockquote{
 .main-header{
 	@include transition(0.8s);
 	background-color: white;
-	padding-top: 2.6%;
-	padding-bottom: 2.6%;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -539,7 +540,8 @@ box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	     -o-background-size: cover;
 	        background-size: cover;
 	    background-repeat: no-repeat;
-	    // background-position: 50% 50%;
+	    -ms-background-position-y: 60%;
+	        background-position-y: 60%;
 	    min-height: 370px;
 	    position: relative;
 	    &:before{
@@ -590,6 +592,7 @@ box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	min-height: 135px;
 	h4{
 		margin: 0;
+		line-height: 2;
 	}
 	.but-2{
 		float: right;
@@ -756,7 +759,6 @@ footer{
 	.menu-button{
 		top: 13px;
 	}
-	padding: 115px 0 0;
 	.responsive-menu{
 		padding-top: 60px;
 	}
@@ -766,7 +768,9 @@ body.customize-support{
 		top: 32px;
 	}
 }
-
+.banner{
+	margin-top: 90px;	
+}
 .custom-cols{
 	.col-2, .col-3, .col-4{
 		padding-right: 5%;
@@ -807,16 +811,14 @@ body.customize-support{
 }
 .parallax{
 	overflow: hidden;
-	@include transition(0.1s);
+	// @include transition(.1s);
 	background-color: $dark-blue;
-	-ms-background-position-y: 100%;
-	    background-position-y: 100%;
 	.container{
 		position: relative;
 	}
 }	
 .transition{
-	@include transition(0.3s);
+	@include transition(0s);
 } 	
 .parallax-content{
 	@include transition(0s);
@@ -832,6 +834,8 @@ body.customize-support{
 // Category page
 .category-banner{
 	min-height: 465px;
+	-ms-background-position-y: 30%;
+	    background-position-y: 30%;
 	@extend .common-banner;
 }
 .category-title{
@@ -880,6 +884,8 @@ body.customize-support{
 .single-banner{
 	min-height: 485px;
 	@extend .common-banner;
+	-ms-background-position-y: 30%;
+	background-position-y: 30%;
 }
 .single-page-intro{
 	margin-bottom: 15px;
@@ -945,7 +951,7 @@ h6.toggle-button{
 }
 .toggle-content{
 	display: none;
-	padding: 2%;
+	padding: 2% 0;
 }
 .search-input{
 	background-color: $dark-blue-2;

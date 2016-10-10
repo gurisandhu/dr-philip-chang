@@ -9,7 +9,7 @@ get_header();
 	
 	<?php if (have_rows('front_page_slider')): ?>
 	<!-- Intro Banner -->
-	<div class="swiper-container">
+	<div class="banner swiper-container">
 		<div class="swiper-wrapper">
 			<?php while (have_rows('front_page_slider')): the_row();
 				$title 	= get_sub_field('front_slider_title');

@@ -24,8 +24,8 @@
 			padding: 0 12px 0 0;
 		}
 	}
-	body{
-		padding: 132px 0 0;
+	.banner{
+		margin-top: 132px;
 	}
 	.on-scrolled{
 		.desktop-menu{
@@ -98,11 +98,8 @@
 		padding-top: 5%;
 		padding-bottom: 5%;
 	}
-	body{
-		padding: 110px 0 0;
-		&.on-scrolled{
-			padding: 73px 0 0;
-		}
+	.banner{
+		margin-top: 110px;
 	}
 	.on-scrolled{
 		.menu-button{
@@ -135,8 +132,8 @@
 
 @media screen and (max-width: 780px){
 
-	body{
-		padding: 82px 0 0;
+	.banner{
+		margin-top: 82px;
 	}
 	.on-scrolled{
 		.menu-button{
@@ -261,11 +258,8 @@
 	}
 }//780
 @media screen and (max-width: 600px){
-	body{
-		padding: 56px 0 0;
-		&.on-scrolled{
-			padding: 27px 0 0;
-		}
+	.banner{
+		margin-top: 56px;
 	}
 	.menu-button{
 		top: 27%;
@@ -351,11 +345,8 @@
 	}
 }//600
 @media screen and (max-width: 400px){
-	body{
-		padding: 40px 0 0;
-		&.on-scrolled{
-			padding: 5px 0 0;
-		}
+	.banner{
+		margin-top: 40px;
 	}
 	.menu-button{
 		top: 15%;
@@ -439,4 +430,13 @@
 		font-size: 18px;
 		margin-bottom: 2%;
 	}
+	.sub-footer{
+		text-align: center;
+		.col-4{
+			img{
+				float: none;
+			}
+		}
+	}
+
 }//400

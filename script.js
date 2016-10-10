@@ -1,8 +1,8 @@
-//                            PLEASE  NOTE 
 // 
 //to edit this file, you must run Gulp. Because it will compresses the code into new file in compressed folder called script.js. And this file (compressed/script.js) is linked the site. If unable to use gulp or anyother task runner. You can do it manually from online "script minified tools".
 // 
-// 
+//
+//                            PLEASE  NOTE  
 $(document).ready(function(){
 
 // Search toggle
@@ -30,8 +30,8 @@ $(document).ready(function(){
         prevButton: '.swiper-button-prev',
         spaceBetween: 30,
         loop: true,
-        // autoplay: 5000,
-        autoplayDisableOnInteraction: false
+        autoplay: 3000,
+        effect: 'fade'
     });
   // On scroll up header resizes
     $(window).scroll(function() {    
@@ -79,67 +79,32 @@ $(document).ready(function(){
       $(".hide-body").removeClass("toggle-hide-body");
       $(".menu-button").removeClass("show");
     });   
-  });//end of document ready
 
-function $$(selector, context) {
-    context = context || document;
-    var elements = context.querySelectorAll(selector);
-    return Array.prototype.slice.call(elements);
-}
-
-window.addEventListener("scroll", function() {
-    var scrolledHeight  = window.pageYOffset;
     var bodyHeight      = document.body.offsetHeight;
     var clientHeight    = window.innerHeight;
-    
-    $$(".parallax").forEach(function(el,index,array) {
-        
-        var limit         =   scrolledHeight + el.offsetHeight;
-        var limitTop      =   el.offsetTop + el.offsetHeight;
-        var limitBottom   =   el.offsetTop - scrolledHeight;
-        var limitOpacityBottom  =   limitBottom + (bodyHeight/3);
-        var parallaxContent   =   el.querySelector('.parallax-content');
+    $('.parallax').each(function(){
+      var thisEle = $(this);
+      var childEle = thisEle.find('.parallax-content');
+      var topPos = thisEle.offset().top;
+      var eleHeight = thisEle.height();
       
-       
 
-        if(scrolledHeight <= limitTop && scrolledHeight >= limitBottom) {
-          var resetScrolled             = window.pageYOffset;
-          var contentTopPositionBanner  =   (resetScrolled - limitBottom)/100;
-          var contentTopPosition        = (resetScrolled - limitBottom)/450;
-          var bgPostionY                = (scrolledHeight - el.offsetTop) /5;
+      var thisPos = thisEle.css('background-position').split(" ");
+      thisPos = parseInt(thisPos[1]);      
+      $(window).scroll(function(){
+        var scrolledHeight  = window.pageYOffset + clientHeight/1.1;
 
-          
-            if (el.offsetTop < 100){
-              el.style.backgroundPositionY= (contentTopPosition*80) + "px";
-            } else if (el.offsetTop < 200) {
-              el.style.backgroundPositionY= 100 -(contentTopPosition*200) + "%";
-            } else {
-              el.style.backgroundPositionY= 100 -(contentTopPosition*20) + "%";
-            }
-          
-            
-            if(el.querySelector('.parallax-content') !== null){
-              if (el.offsetTop < 100){
-                parallaxContent.style.top = contentTopPositionBanner + 'em';
-              } else {
-                parallaxContent.style.top = contentTopPosition + 'em';
-              }
-            }
-        }// Parallax Background Image
-        
-        if(el.querySelector('.parallax-content') !== null){
-          if (scrolledHeight <= limitTop && scrolledHeight >= limitOpacityBottom){
-
-            var resetScroll = scrolledHeight - limitOpacityBottom;
-            var setOpacity = 1 - resetScroll/700;
-            var zeroOpacity = 0.;
-              el.querySelector('.parallax-content').style.opacity  = setOpacity;
-            } else {
-              el.querySelector('.parallax-content').style.opacity  = 1;
-          }// Change Opacity while scroll
+        if (scrolledHeight > topPos){
+          var resetScroll = 1 - (window.pageYOffset - clientHeight/4);
+          // console.log(resetScroll);
+          var newPos = thisPos + (resetScroll/45);
+          thisEle.css('background-position-y', +newPos+'%');
         }
+          
+      });
+    });//parallax
+  });//end of document ready
 
-    });//parallax forEach
-});
+
 
 
