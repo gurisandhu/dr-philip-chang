@@ -30,14 +30,14 @@ $(document).ready(function(){
         prevButton: '.swiper-button-prev',
         spaceBetween: 30,
         loop: true,
-        autoplay: 3000,
+        // autoplay: 3000,
         effect: 'fade'
     });
   // On scroll up header resizes
     $(window).scroll(function() {    
       var scroll = $(window).scrollTop();
 
-      if (scroll >= 10) {
+      if (scroll >= 200) {
           $("body").addClass("on-scrolled");
       } else {
           $("body").removeClass("on-scrolled");
@@ -80,8 +80,8 @@ $(document).ready(function(){
       $(".menu-button").removeClass("show");
     });   
 
-    var bodyHeight      = document.body.offsetHeight;
-    var clientHeight    = window.innerHeight;
+    var bodyHeight      = $('body').height();
+    var clientHeight    = $(window).innerHeight();
     $('.parallax').each(function(){
       var thisEle = $(this);
       var childEle = thisEle.find('.parallax-content');
@@ -92,17 +92,40 @@ $(document).ready(function(){
       var thisPos = thisEle.css('background-position').split(" ");
       thisPos = parseInt(thisPos[1]);      
       $(window).scroll(function(){
-        var scrolledHeight  = window.pageYOffset + clientHeight/1.1;
+
+        var scrolledHeight  = $(window).scrollTop() + clientHeight/1.1;
 
         if (scrolledHeight > topPos){
-          var resetScroll = 1 - (window.pageYOffset - clientHeight/4);
-          // console.log(resetScroll);
-          var newPos = thisPos + (resetScroll/45);
-          thisEle.css('background-position-y', +newPos+'%');
+          var resetScroll = topPos - ($(window).scrollTop());
+          if (topPos < 200){
+            var newPos = thisPos - ($(window).scrollTop()/11);
+          } else {
+            resetScroll = (topPos - clientHeight + 88) - ($(window).scrollTop());
+            var newPos = thisPos + (resetScroll/90);
+          }
+          thisEle.css('background-position', '0 ' + newPos+'%');
+          childEle.find('h1').addClass('show');
+          childEle.find('summary').addClass('show');
         }
-          
       });
     });//parallax
+
+    setTimeout(function(){
+          $('.parallax-content h1').addClass('show');
+          $('.parallax-content summary').addClass('show');
+    }, 1000);
+    
+    $('.swiper-button-white').each(function(){
+      $(this).click(function(){
+        $('.parallax-content h1').removeClass('show');
+        $('.parallax-content summary').removeClass('show');
+
+        setTimeout(function(){
+          $('.parallax-content h1').addClass('show');
+          $('.parallax-content summary').addClass('show');
+        }, 1000);
+      });
+    })///swiper-button-white
   });//end of document ready
 
 

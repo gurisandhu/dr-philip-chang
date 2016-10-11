@@ -487,7 +487,7 @@ blockquote{
 .front-page-intro{
 	min-height: 745px;
 	position: relative;
-	// background-position: 50% 25%;
+	background-position: 0 15%;
 	@extend .common-banner;
 	    h1, summary{
 	    	float: left;
@@ -540,9 +540,8 @@ box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	     -o-background-size: cover;
 	        background-size: cover;
 	    background-repeat: no-repeat;
-	    -ms-background-position-y: 60%;
-	        background-position-y: 60%;
-	    min-height: 370px;
+	    background-position: 0 60%;
+	    height: 370px;
 	    position: relative;
 	    &:before{
 	    	position: absolute;
@@ -811,21 +810,52 @@ body.customize-support{
 }
 .parallax{
 	overflow: hidden;
-	// @include transition(.1s);
 	background-color: $dark-blue;
+	-webkit-transition: background-image 0.2s ease-in-out;
+	   -moz-transition: background-image 0.2s ease-in-out;
+	    -ms-transition: background-image 0.2s ease-in-out;
+	     -o-transition: background-image 0.2s ease-in-out;
+	        transition: background-image 0.2s ease-in-out;
 	.container{
 		position: relative;
 	}
 }	
-.transition{
-	@include transition(0s);
-} 	
+
 .parallax-content{
-	@include transition(0s);
 	position: relative;
 	opacity: 1;
 	z-index: 0;
 	display: inline-block;
+	h1{
+		-webkit-transition-duration: 500ms;
+	       -moz-transition-duration: 500ms;
+	        -ms-transition-duration: 500ms;
+	         -o-transition-duration: 500ms;
+	            transition-duration: 500ms;
+	}
+	summary{
+		-webkit-transition-duration: 1200ms;
+	       -moz-transition-duration: 1200ms;
+	        -ms-transition-duration: 1200ms;
+	         -o-transition-duration: 1200ms;
+	            transition-duration: 1200ms;
+	}
+	h1, summary{
+		opacity: 0;
+		-webkit-transform: translate3d(0,400px,0);
+		   -moz-transform: translate3d(0,400px,0);
+		    -ms-transform: translate3d(0,400px,0);
+		     -o-transform: translate3d(0,400px,0);
+		        transform: translate3d(0,400px,0);
+	    &.show{
+	    	-webkit-transform: translate3d(0,0,0);
+	    	   -moz-transform: translate3d(0,0,0);
+	    	    -ms-transform: translate3d(0,0,0);
+	    	     -o-transform: translate3d(0,0,0);
+	    	        transform: translate3d(0,0,0);
+	    	        opacity: 1;	    
+	        }
+	}
 }
 	
 
@@ -834,8 +864,7 @@ body.customize-support{
 // Category page
 .category-banner{
 	min-height: 465px;
-	-ms-background-position-y: 30%;
-	    background-position-y: 30%;
+    background-position: 0 30%;
 	@extend .common-banner;
 }
 .category-title{
@@ -884,8 +913,7 @@ body.customize-support{
 .single-banner{
 	min-height: 485px;
 	@extend .common-banner;
-	-ms-background-position-y: 30%;
-	background-position-y: 30%;
+	background-position: 0 30%;
 }
 .single-page-intro{
 	margin-bottom: 15px;
