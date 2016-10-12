@@ -88,7 +88,6 @@ $(document).ready(function(){
       var topPos = thisEle.offset().top;
       var eleHeight = thisEle.height();
       
-
       var thisPos = thisEle.css('background-position').split(" ");
       thisPos = parseInt(thisPos[1]);      
       $(window).scroll(function(){
@@ -98,28 +97,50 @@ $(document).ready(function(){
         if (scrolledHeight > topPos){
           var resetScroll = topPos - ($(window).scrollTop());
           if (topPos < 200){
-            var newPos = thisPos - ($(window).scrollTop()/11);
+            var newPos = thisPos - ($(window).scrollTop()/10);
+            thisEle.css('background-position', 'center ' + newPos+'px');
           } else {
             resetScroll = (topPos - clientHeight + 88) - ($(window).scrollTop());
-            var newPos = thisPos + (resetScroll/90);
+            var newPos = thisPos + (resetScroll/6);
+            thisEle.css('background-position', 'center ' + newPos+'px');
           }
-          thisEle.css('background-position', '0 ' + newPos+'%');
+          
           childEle.find('h1').addClass('show');
           childEle.find('summary').addClass('show');
         }
       });
     });//parallax
 
+    // Slider parallax
+    $('.slider-parallax').each(function(){
+      var slider = $(this);
+      var topPos = slider.offset().top;
+      var eleHeight = slider.height();
+
+      $(window).scroll(function(){
+        var scrolledHeight = $(window).scrollTop();
+        slider.css({
+          transform: 'translateY('+(-scrolledHeight/10)+'px)',
+          MozTransform: 'translateY('+(-scrolledHeight/10)+'px)',
+          WebkitTransform: 'translateY('+(-scrolledHeight/10)+'px)',
+          msTransform: 'translateY('+ (-scrolledHeight/10)+'px)'
+        });
+      });
+    });//slider parallax each
+
+    //parallax-content transition to up and down
     setTimeout(function(){
           $('.parallax-content h1').addClass('show');
           $('.parallax-content summary').addClass('show');
     }, 1000);
-    
+
+    // $('.swiper-slide-active .slider-parallax').css('background-attachment', 'fixed');
     $('.swiper-button-white').each(function(){
       $(this).click(function(){
         $('.parallax-content h1').removeClass('show');
         $('.parallax-content summary').removeClass('show');
-
+        // $('.slider-parallax').css('background-attachment', 'fixed');
+         // .swiper-slide-active  
         setTimeout(function(){
           $('.parallax-content h1').addClass('show');
           $('.parallax-content summary').addClass('show');

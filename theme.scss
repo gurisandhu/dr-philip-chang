@@ -45,8 +45,6 @@ body{
   color: $body-font;
   font-size: 14px;
   margin: 0;
-  -ms-overflow-x: hidden;
-      overflow-x: hidden;
   padding: 0;
 }
 .hide-body{
@@ -323,13 +321,14 @@ blockquote{
 }//end of desktop-menu
 .menu-button{
 	position: absolute;
-	right: 20px;
+	right: 0;
 	top: 37%;
 	color: $grey;
+	height: 100%;
 	cursor: pointer;
 	font-family: $pop;
 	font-size: 20px;
-	width: 85px;
+	width: 52px;
 	font-weight: 600;
 	text-align: right;
 	z-index: 99;
@@ -338,19 +337,20 @@ blockquote{
 		position: absolute;
 	    content: "";
 	    display: block;
-	    width: 20px;
+	    width: 30px;
 	    left: 0;
+	    z-index: 98;
 	    @include transition(.6s);
 	}
 	&:after{
 		top: 8px;
 		height: 3.765px;
-		border-top: 2px solid $grey;
-		border-bottom: 2px solid $grey;
+		border-top: 3px solid $grey;
+		border-bottom: 3px solid $grey;
 	}
 	&:before{
-		top: 20px;
-		height: 2px;
+		top: 22px;
+		height: 3px;
 		background-color: $grey;
 	}
 	&.show{
@@ -358,15 +358,15 @@ blockquote{
 		&:before{
 			top: 15px;
 			background: $grey;
-			width: 19px;
+			// width: 19px;
 			@include transform(-45);
 		}
 		&:after{
-			top: 15px;
-		    border: 0;
-		    height: 2px;
-		    width: 19px;
-		    background: $grey;
+			top: 12px;
+			left: 1px;
+		    border-top: 0;
+		    // height: 2px;
+		    // width: 19px;
 		  	@include transform(45);  
 		}
 	}
@@ -376,8 +376,8 @@ blockquote{
 	background-color: $dark-blue-2;
 	z-index: 10;
 	position: fixed;
-	top: 80px;
-	padding-top: 75px;
+	top: 0px;
+	padding-top: 100px;
 	padding-bottom: 30px;
 	> nav{
 		> div{
@@ -484,32 +484,42 @@ blockquote{
 	    position: relative;
 	    background-repeat: no-repeat;
 }
-.front-page-intro{
+.front-page-banner{
 	min-height: 745px;
 	position: relative;
-	background-position: 0 15%;
-	@extend .common-banner;
-	    h1, summary{
-	    	float: left;
-	    	clear: both;
-	    	
-	    	line-height: 1;
-	    }
-	    h1{
-	    	text-shadow: 1px 1px #444;
-	    }
-	    summary{
-	    	font-size: 22px;
-	    	line-height: 1.5;
-	    	font-family: $pop;
-			width: 75%;	
-			font-weight: 400;
-	    }
+	.container{
+		position: relative;
+		z-index: 9;
+	}
+    h1, summary{
+    	float: left;
+    	clear: both;
+    	
+    	line-height: 1;
+    }
+    h1{
+    	text-shadow: 1px 1px #444;
+    }
+    summary{
+    	font-size: 22px;
+    	line-height: 1.5;
+    	font-family: $pop;
+		width: 75%;	
+		font-weight: 400;
+    }
 	.parallax-content{
 		width: 51%;	
 		left: 3%;
 		padding-top: 28%;
 	}
+}
+.front-page-intro{
+	height: 100%;
+	min-height: 745px;
+	background-position: center 15px;
+	// opacity: 0;
+	// background-attachment: fixed;
+	@extend .common-banner;
 	&:before{
 		position: absolute;
 		content: "";
@@ -520,15 +530,35 @@ blockquote{
 		bottom: 0;
 		z-index: 0;
 		-webkit-box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
--moz-box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
-box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
+		-moz-box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
+		box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	}
+}
+.slider-parallax-container{
+	margin-bottom: 835px;
+}
+.slider-parallax{
+	position: fixed;
+	overflow: auto;
+	z-index: 0;
+	z-index: 0;
+	-webkit-transform: translate3d(0,0px,0);
+	   -moz-transform: translate3d(0,0px,0);
+	    -ms-transform: translate3d(0,0px,0);
+	     -o-transform: translate3d(0,0px,0);
+	        transform: translate3d(0,0px,0);
+	-webkit-transition-duration: 200ms;
+	   -moz-transition-duration: 200ms;
+	    -ms-transition-duration: 200ms;
+	     -o-transition-duration: 200ms;
+	        transition-duration: 200ms;
 }
 .padding-t-b{
 	padding-top: 4%;
 	padding-bottom: 4%;
 }
 .section-2{
+	background-color: white;
 	@extend .padding-t-b;
 	.one-third{
 		padding-right: 2%;
@@ -540,9 +570,10 @@ box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	     -o-background-size: cover;
 	        background-size: cover;
 	    background-repeat: no-repeat;
-	    background-position: 0 60%;
+	    background-position: center 120px;
 	    height: 370px;
 	    position: relative;
+	    background-attachment: fixed;
 	    &:before{
 	    	position: absolute;
 	    	content: "";
@@ -768,6 +799,7 @@ body.customize-support{
 	}
 }
 .banner{
+	@include transition(.3s);
 	margin-top: 90px;	
 }
 .custom-cols{
@@ -810,12 +842,12 @@ body.customize-support{
 }
 .parallax{
 	overflow: hidden;
-	background-color: $dark-blue;
-	-webkit-transition: background-image 0.2s ease-in-out;
-	   -moz-transition: background-image 0.2s ease-in-out;
-	    -ms-transition: background-image 0.2s ease-in-out;
-	     -o-transition: background-image 0.2s ease-in-out;
-	        transition: background-image 0.2s ease-in-out;
+	background-color: white;
+	-webkit-transition: background-image 200ms ease-in-out;
+	   -moz-transition: background-image 200ms ease-in-out;
+	    -ms-transition: background-image 200ms ease-in-out;
+	     -o-transition: background-image 200ms ease-in-out;
+	        transition: background-image 200ms ease-in-out;
 	.container{
 		position: relative;
 	}
@@ -862,10 +894,11 @@ body.customize-support{
 
 
 // Category page
-.category-banner{
+.inner-banner{
 	min-height: 465px;
-    background-position: 0 30%;
+    background-position: center -106px;
 	@extend .common-banner;
+	background-attachment: fixed;
 }
 .category-title{
 	background-color: $creame;
@@ -910,11 +943,6 @@ body.customize-support{
 	}
 }
 // Single Page
-.single-banner{
-	min-height: 485px;
-	@extend .common-banner;
-	background-position: 0 30%;
-}
 .single-page-intro{
 	margin-bottom: 15px;
 }
@@ -984,7 +1012,7 @@ h6.toggle-button{
 .search-input{
 	background-color: $dark-blue-2;
 	@include placeholder($dark-blue-3);
-	padding: 4% 0 1%;
+	padding: 40px 0 12px;
 	color: $dark-blue-3;
 	input{
 		border: none;
@@ -1011,7 +1039,10 @@ h6.toggle-button{
 		padding: 1% 0 0;
 	}
 }
-
+section, footer{
+	position: relative;
+	z-index: 1;
+}
 
 
 

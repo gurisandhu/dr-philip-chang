@@ -4,4 +4,4 @@
 	</nav>	
 </div> <!-- end of desktop menu -->
 
-<div class="responsive menu-button">Menu</div>
+<div class="responsive menu-button"></div>

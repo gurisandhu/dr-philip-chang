@@ -2,8 +2,16 @@
 	.front-page-intro{
 		min-height: 650px;
 	}
+	.slider-parallax-container{
+		margin-bottom: 650px;
+	}
+	.front-page-banner{
+		min-height: inherit;
+	}
+	
 }//1300
 @media screen and (max-width: 1160px){
+
 	.logo{
 		width: 30%;
 	}
@@ -25,7 +33,7 @@
 		}
 	}
 	.banner{
-		margin-top: 132px;
+		margin-top: 89px;
 	}
 	.on-scrolled{
 		.desktop-menu{
@@ -76,8 +84,12 @@
 			width: 70%;
 		}
 	}
+	.slider-parallax-container{
+		margin-bottom: 610px;
+	}
 }//1100
 @media screen and (max-width: 950px){
+
 	.desktop-menu{
 		display: none;
 	}
@@ -99,15 +111,18 @@
 		padding-bottom: 5%;
 	}
 	.banner{
-		margin-top: 110px;
+		margin-top: 80px;
 	}
 	.on-scrolled{
 		.menu-button{
 			top: 9px;
 		}
-		.responsive-menu{
-			top: 30px;
+		.banner{
+			margin-top: 57px;
 		}
+	}
+	.slider-parallax-container{
+		margin-bottom: 515px;
 	}
 	.front-page-intro{
 		min-height: 440px;
@@ -133,15 +148,18 @@
 @media screen and (max-width: 780px){
 
 	.banner{
-		margin-top: 82px;
+		margin-top: 55px;
 	}
 	.on-scrolled{
 		.menu-button{
 			top: 6px;
 		}
-		.responsive-menu{
-			padding-top: 70px;
+		.banner{
+			margin-top: 45px;
 		}
+	}
+	.slider-parallax-container{
+		margin-bottom: 395px;
 	}
 	.col-2{
 		width: 100%;
@@ -256,22 +274,27 @@
 	h1{
 		font-size: 40px;
 	}
+	.menu-button{
+		top: 20px;
+		width: 49px;
+	}
 }//780
 @media screen and (max-width: 600px){
+
+	.slider-parallax-container{
+		margin-bottom: 255px;
+	}
 	.banner{
-		margin-top: 56px;
+		margin-top: 32px;
 	}
 	.menu-button{
-		top: 27%;
+		top: 12px;
+		width: 43px;
 	}
 	
 	.on-scrolled{
 		.menu-button{
-			top: 2px;
-		}
-		.responsive-menu{
-			padding-top: 45px;
-			top: 0;
+			top: 0px;
 		}
 	}
 	.top-menu{
@@ -317,10 +340,6 @@
 	.but-2{
 		min-width: 100%;
 	}	
-	.responsive-menu{
-		top: 60px;
-		padding-top: 55px;
-	}
 	h3.toggle-button{
 		padding: 2.7% 2% 2.1% 4%;
 		&:after{
@@ -346,10 +365,14 @@
 }//600
 @media screen and (max-width: 400px){
 	.banner{
-		margin-top: 40px;
+		margin-top: 20px;
+	}
+	.slider-parallax-container{
+		margin-bottom: 180px;
 	}
 	.menu-button{
-		top: 15%;
+		top: 2px;
+		width: 39px;
 	}
 	.top-menu{
 		li{
@@ -387,14 +410,6 @@
 			&:nth-of-type(n+2){
 				margin-top: 5px;
 			}
-		}
-	}
-	.responsive-menu{
-		top: 40px;
-	}
-	.on-scrolled{
-		.responsive-menu{
-			padding-top: 35px;
 		}
 	}
 	h3.toggle-button{

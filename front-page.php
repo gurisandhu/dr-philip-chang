@@ -9,28 +9,33 @@ get_header();
 	
 	<?php if (have_rows('front_page_slider')): ?>
 	<!-- Intro Banner -->
-	<div class="banner swiper-container">
-		<div class="swiper-wrapper">
-			<?php while (have_rows('front_page_slider')): the_row();
-				$title 	= get_sub_field('front_slider_title');
-				$desc 	= get_sub_field('front_slider_description');
-				$image 	= get_sub_field('front_slider_image');
-			 ?>
-			<section class="swiper-slide front-page-intro parallax" style="background-image: url('<?php echo $image ["url"]; ?>');">
-
-				<div class="container">
-					<div id="parallax-content" class="parallax-content">
-						<h1 class="white"><?php echo $title; ?></h1> 
-						<summary class="white"><?php echo $desc; ?></summary>
-					</div>
+	<section class="slider-parallax-container">
+		<section class="slider-parallax">
+			<div class="front-page-banner banner swiper-container">
+				<div class="swiper-wrapper">
+					<?php while (have_rows('front_page_slider')): the_row();
+						$title 	= get_sub_field('front_slider_title');
+						$desc 	= get_sub_field('front_slider_description');
+						$image 	= get_sub_field('front_slider_image');
+					 ?>
+					<section class="swiper-slide">
+						<div class="front-page-intro" style="background-image: url('<?php echo $image ["url"]; ?>');">
+							<div class="container">
+								<div id="parallax-content" class="parallax-content">
+									<h1 class="white"><?php echo $title; ?></h1> 
+									<summary class="white"><?php echo $desc; ?></summary>
+								</div>
+							</div>
+						</div>
+					</section>	
+					<?php endwhile; ?>
 				</div>
-			</section>	
-			<?php endwhile; ?>
-		</div>
-		<!-- Add Arrows -->
-        <div class="swiper-button-next swiper-button-white"></div>
-        <div class="swiper-button-prev swiper-button-white"></div>
-	</div><!-- Swiper container -->
+				<!-- Add Arrows -->
+		        <div class="swiper-button-next swiper-button-white"></div>
+		        <div class="swiper-button-prev swiper-button-white"></div>
+			</div><!-- Swiper container -->
+		</section> <!-- slider-parallax -->
+	</section><!-- slider-parallax-container -->
 	<?php endif; ?>
 	
 	
