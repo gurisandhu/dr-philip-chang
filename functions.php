@@ -46,8 +46,7 @@ function register_my_menus() {
   register_nav_menus(
     array(
       'header-menu' => __( 'Header Menu' ),
-      'page-menu' => __( 'Page Menu' ),
-      'page-menu-second' => __('Page menu second')
+      'footer-menu' => __('Footer Menu')
     )
   );
 }
@@ -59,15 +58,37 @@ add_action( 'init', 'register_my_menus' );
 // *************************
 if (function_exists('acf_add_options_page')){
   $contact_info = acf_add_options_page(array(
-      'page_title'  =>  'Misc.',
-      'menu_title'  => 'Misc.',
-      'menu_slug'   =>  'contact-info-settings',
+      'page_title'  =>  'Sidebar Widget',
+      'menu_title'  => 'Sidebar Widget',
+      'menu_slug'   =>  'sidebar-widget-settings',
       'capability'  =>  'edit_posts',
-      'icon_url'    =>  'dashicons-list-view',
+      'icon_url'    =>  'dashicons-index-card',
       'redirect'    =>  false
     ));
   add_filter('menu_order', 'custom_menu_order', 99);
 }
+if (function_exists('acf_add_options_page')){
+  $contact_info = acf_add_options_page(array(
+      'page_title'  =>  'Footer Widget',
+      'menu_title'  => 'Footer Widget',
+      'menu_slug'   =>  'footer-widget-settings',
+      'capability'  =>  'edit_posts',
+      'icon_url'    =>  'dashicons-editor-insertmore',
+      'redirect'    =>  false
+    ));
+  add_filter('menu_order', 'custom_menu_order', 99);
+}
+// if (function_exists('acf_add_options_page')){
+//   $contact_info = acf_add_options_page(array(
+//       'page_title'  =>  'Misc.',
+//       'menu_title'  => 'Misc.',
+//       'menu_slug'   =>  'contact-info-settings',
+//       'capability'  =>  'edit_posts',
+//       'icon_url'    =>  'dashicons-list-view',
+//       'redirect'    =>  false
+//     ));
+//   add_filter('menu_order', 'custom_menu_order', 99);
+// }
 
 
  ?>

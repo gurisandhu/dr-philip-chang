@@ -1,11 +1,9 @@
 <!-- Footer -->
 <footer>
 	<div class="container">
-		<ul class="row">
-			<li><a href="#">Privacy Policy</a></li>
-			<li><a href="#">Terms of Use</a></li>
-			<li><a href="#">Copyright information</a></li>
-		</ul>
+		<nav>
+			<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+		</nav>
 	</div>
 </footer>
 
