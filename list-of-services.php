@@ -1,17 +1,24 @@
 <!-- List of services with Background image: (Such as: Surgical Experience and Expertise) -->
-<section class="section-3 table parallax" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/drchang_subfooterimage.jpg');">
-	<div class="table-cell">
-		<div class="container">
-			<div class="row">
-				<h3 class="white">Surgical Experience and Expertise</h3>
-				<ul>
-					<li><a class="but-3 transparent" href="#">Paediatric Ear</a></li>
-					<li><a class="but-3 transparent" href="#">Adult Ear</a></li>
-					<li><a class="but-3 transparent" href="#">Cochlear Implants</a></li>
-					<li><a class="but-3 transparent" href="#">Acoustic Neuroma</a></li>
-					<li><a class="but-3 transparent" href="#">Specialised Ent</a></li>
-				</ul>
+
+<?php $posts = get_field('list_of_services_above_widget_list_of_services', 'option'); 
+		
+?>
+
+<?php if($posts): ?>
+	<section class="section-3 table parallax" style="background-image: url('<?php echo the_field('list_of_services_above_widget_background_image', 'option'); ?>');">
+		<div class="table-cell">
+			<div class="container">
+				<div class="row">
+					<h3 class="white"><?php echo the_field('list_of_services_above_widget_title', 'option'); ?></h3>
+					<ul>
+						<?php foreach($posts as $post): 
+							setup_postdata($post);
+						?>
+							<li><a class="but-3 transparent" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<?php endif; ?>

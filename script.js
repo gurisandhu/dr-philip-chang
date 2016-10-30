@@ -1,6 +1,5 @@
 // 
-//to edit this file, you must run Gulp. Because it will compresses the code into new file in compressed folder called script.js. And this file (compressed/script.js) is linked the site. If unable to use gulp or anyother task runner. You can do it manually from online "script minified tools".
-// 
+// to edit this file, you must run Gulp. Because it will compresses the code into new file in compressed folder called script.js. And this file (compressed/script.js) is linked the site. If unable to use gulp or anyother task runner. You can do it manually from online "script minified tools".
 //
 //                            PLEASE  NOTE  
 $(document).ready(function(){
@@ -147,8 +146,43 @@ $(document).ready(function(){
         }, 1000);
       });
     })///swiper-button-white
+
+  // Google Map
+    $('#map').addClass('scrolloff'); // set the pointer events to none on doc ready
+    $('.map-wrapper').on('click', function () {
+      $('#map').removeClass('scrolloff'); // set the pointer events true on click
+    });// you want to disable pointer events when the mouse leave the canvas area;
+
+    $(".map-wrapper").mouseleave(function () {
+      $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
+    });
   });//end of document ready
 
+// Google Map
+var address;
+
+function initMap() {
+
+   var map = new google.maps.Map(document.getElementById('map'), { 
+       mapTypeId: google.maps.MapTypeId.TERRAIN,
+       zoom: 13
+   });
+
+   var geocoder = new google.maps.Geocoder();
+
+   geocoder.geocode({
+      'address': address;
+   }, 
+   function(results, status) {
+      if(status == google.maps.GeocoderStatus.OK) {
+         new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map
+         });
+         map.setCenter(results[0].geometry.location);
+      }
+   });
+    }
 
 
 

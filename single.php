@@ -6,92 +6,79 @@ get_header();
  ?>
 
 <!-- Template: single.php -->
-<section class="banner parallax inner-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/Dr-Chang-Set-2116.jpg');">
-	<div class="container">
+
+<?php $singleBanner = get_field('single_template_banner'); ?>
+
+<?php if($catBanner): ?>
+	<!-- Template: archive.php -->
+	<section class="banner parallax inner-banner" style="background-image: url('<?php echo $singleBanner; ?>');">
+		<div class="container">
+			<!-- No text here -->
+		</div>
+	</section>
+	<?php else: ?>
+	<section class="banner parallax inner-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/Dr-Chang-Set-2116.jpg');">
+		<div class="container">
 		<!-- No text here -->
-	</div>
-</section>
+		</div>
+	</section>
+<?php endif; ?>
 
 <section class="single-content">
 	<div class="container">
 		<div class="row">
-			<div class="two-third"><h1>Exostoses Surgery</h1></div>
-			<div class="one-third">
-				<blockquote>&#8220;Surfers need to be back in the ocean as soon as possible&#8221;</blockquote>
-			</div>
+			<div class="two-third"><h1><?php the_title(); ?></h1></div>
+			<?php if(get_field('single_template_tagline')): ?>
+				<div class="one-third">
+					<blockquote>&#8220;<?php the_field('single_template_tagline'); ?>&#8221;</blockquote>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div class="row single-body">
 			<div class="two-third">
-				<div class="row single-page-intro">
-					<h2>About Exostoses</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat accusamus, voluptas ea magni vel. Blanditiis magnam iusto neque, tempore laborum modi, quos dolores dignissimos vero nulla pariatur quam deleniti suscipit.</p>
-				</div>
-
-				<h2>Further Information</h2>
-				<h3 class="toggle-button">What are exostoses</h3>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
-				<h3 class="toggle-button">What are exostoses</h3>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
-				<h3 class="toggle-button">What are exostoses</h3>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
-				<h3 class="toggle-button">What are exostoses</h3>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
+				<?php if(get_field('single_template_content')): ?>
+					<div class="row single-page-intro">
+						<?php echo (the_field('single_template_content')); ?>
+					</div>
+				<?php endif; ?>
+				
+				<?php if(get_field('single_add_accordion')): ?>
+					<h2><?php echo the_field('single_template_repeater_title'); ?></h2>
+					<?php if(have_rows('single_template_repeater')): 
+							while(have_rows('single_template_repeater')): the_row();
+					?>
+					<h3 class="toggle-button"><?php echo the_sub_field('single_template_repeater_title'); ?></h3>
+					<div class="toggle-content">
+						<?php echo the_sub_field('single_template_repeater_content'); ?>
+					</div>
+					<?php endwhile; endif; ?>
+				<?php endif; ?>
 			</div>
 			<div class="one-third">
 				<div class='embed-container hide'>
-					<iframe src='https://www.youtube.com/embed/eKk8AWIT610' frameborder='0' allowfullscreen></iframe>
+					<iframe src='https://www.youtube.com/embed/<?php echo the_field('single_template_video'); ?>' frameborder='0' allowfullscreen></iframe>
 				</div>
-				<h2>Personal Surgical Experience</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi deleniti provident mollitia commodi delectus. Numquam consequuntur nemo quae eos sit enim nesciunt quaerat odio adipisci accusantium unde, error fugit. Quasi!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae velit nisi magnam reiciendis, possimus ad accusamus ipsum natus facilis! Voluptas quisquam, officiis nisi excepturi. Necessitatibus eius, officiis nemo dignissimos ratione!</p>
-				<h6 class="toggle-button">Personal Surgical Technique</h6>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
+				<?php if(get_field('single_template_right_content')): ?>
+					<h2><?php echo the_field('single_template_right_title'); ?></h2>
+					<?php echo the_field('single_template_right_content'); ?>
+				<?php endif; ?>
 
-				<h6 class="toggle-button">Personal Surgical Technique</h6>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
-
-				<h6 class="toggle-button">Personal Surgical Technique</h6>
-				<div class="toggle-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ab, ipsum quis eos alias autem a odio eveniet sequi iure? Consequuntur cumque alias facere rem, quam ullam doloribus cupiditate earum.</p>
-				</div>
-
+				<?php if(get_field('single_template_right_add_accordion')): ?>
+					<?php if(have_rows('single_template_right_accordain')): 
+							while(have_rows('single_template_right_accordain')): the_row();
+					?>
+						<h6 class="toggle-button"><?php echo the_sub_field('single_template_right_accordain_title'); ?></h6>
+						<div class="toggle-content">
+							<?php echo the_sub_field('single_template_right_accordain_content'); ?>
+						</div>
+				<?php endwhile; endif; endif; ?>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Call to action (such as Headline with Contact button) -->
-<section class="section-4 table">
-	<div class="table-cell">
-		<div class="container">
-			<div class="two-third">
-				<h4 class="white">For dedicated and individualised care</h4>
-			</div>
-			<div class="one-third">
-				<a href="#" class="but-2 white-but">Contact Dr Chang</a>
-			</div>
-		</div>
-	</div>
-</section>
+<?php include (TEMPLATEPATH . '/call-to-action.php'); ?>
+
 <?php include (TEMPLATEPATH . '/sub-footer.php'); ?>
 
 <?php get_footer(); ?>

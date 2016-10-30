@@ -44,7 +44,7 @@ get_header();
 		<div class="container">
 			<div class="one-third">
 				<?php the_field('front_second_text'); ?>
-				<a href="<?php the_field('front_second_link_to_page'); ?>" class="but blue">Know more</a>
+				<a href="<?php the_field('front_second_link_to_page'); ?>" class="but blue"><?php the_field('front_second_button_text'); ?></a>
 			</div>
 			<div class="two-third">
 				<div class='embed-container hide'><iframe src='https://www.youtube.com/embed/<?php the_field('front_second_video'); ?>' frameborder='0' allowfullscreen></iframe></div>
@@ -54,19 +54,8 @@ get_header();
 
 <?php include (TEMPLATEPATH . '/list-of-services.php'); ?>
 
-<!-- Call to action (such as Headline with Contact button) -->
-<section class="section-4 table">
-	<div class="table-cell">
-		<div class="container">
-			<div class="two-third">
-				<h4 class="white">For dedicated and individualised care</h4>
-			</div>
-			<div class="one-third">
-				<a href="#" class="but-2 white-but">Contact Dr Chang</a>
-			</div>
-		</div>
-	</div>
-</section>
+<?php include (TEMPLATEPATH . '/call-to-action.php'); ?>
+
 <?php include (TEMPLATEPATH . '/sub-footer.php'); ?>
 
 <?php get_footer(); ?>

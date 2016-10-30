@@ -21,9 +21,12 @@ add_action('template_redirect', 'my_styles');
 //end of styles
 
 function my_scripts(){
-	wp_enqueue_script( 'drchang-swiper', get_bloginfo('template_directory') . '/library/swiper.min.js', array('jquery'), true);
+	wp_enqueue_script( 'drchang-swiper', get_bloginfo('template_directory') . '/library/swiper.min.js', null, null, true);
 
-  wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', array('jquery'), '', true);
+  wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', null, null, true);
+
+   wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlfPgnC0Z0WBajAY03r5t94uwHecdsmfE&callback=initMap',null,null,true);
+  wp_enqueue_script('googlemaps');
 }
 add_action('template_redirect', 'my_scripts');
  //end of my_scripts
@@ -33,7 +36,7 @@ add_action('template_redirect', 'my_scripts');
 
     function my_jquery_enqueue() {
        wp_deregister_script('jquery');
-       wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", false, null);
+       wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, null);
        wp_enqueue_script('jquery');
     }
 // End of General Jquery CDN
@@ -78,17 +81,18 @@ if (function_exists('acf_add_options_page')){
     ));
   add_filter('menu_order', 'custom_menu_order', 99);
 }
-// if (function_exists('acf_add_options_page')){
-//   $contact_info = acf_add_options_page(array(
-//       'page_title'  =>  'Misc.',
-//       'menu_title'  => 'Misc.',
-//       'menu_slug'   =>  'contact-info-settings',
-//       'capability'  =>  'edit_posts',
-//       'icon_url'    =>  'dashicons-list-view',
-//       'redirect'    =>  false
-//     ));
-//   add_filter('menu_order', 'custom_menu_order', 99);
-// }
 
-
+  function wpb_list_child_pages() {
+    global $post;
+    if ( is_page() && $post->post_parent )
+      $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+    else
+      $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+    if ( $childpages ) {
+      $string = $childpages;   
+    }
+    echo $string;
+    }
+  add_shortcode('wpb_childpages', 'wpb_list_child_pages');
+  
  ?>
