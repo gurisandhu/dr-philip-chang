@@ -9,6 +9,7 @@ $(document).ready(function(){
     $(".toggle-content-2").slideToggle();
     $(".hide-body").toggleClass("toggle-hide-body");
   });
+  
 
   // toggle show and hide
   $(".toggle-button").each(function(){

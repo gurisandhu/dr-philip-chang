@@ -31,13 +31,17 @@
 
 		<?php if (get_field('footer_widget_3_content', 'option')): ?>
 		<div class="col-4">
-			<h5 class="white"><?php echo the_field('footer_widget_3_title', 'option'); ?></h5>
-			<p><?php echo the_field('footer_widget_3_content', 'option'); ?></p>
-			<a href="<?php echo the_field('footer_widget_3_button_link', 'option'); ?>" class="but transparent"><?php echo the_field('footer_widget_3_button_text', 'option'); ?></a>
-
-			<h5 class="white"><?php echo the_field('footer_widget_3_b_title', 'option'); ?></h5>
-			<p><?php echo the_field('footer_widget_3_b_content', 'option'); ?></p>
-			<a href="<?php echo the_field('footer_widget_3_b_button_link', 'option'); ?>" class="but transparent"><?php echo the_field('footer_widget_3_b_button_text', 'option'); ?></a>
+			<div class="widget">
+				<h5 class="white"><?php echo the_field('footer_widget_3_title', 'option'); ?></h5>
+				<p><?php echo the_field('footer_widget_3_content', 'option'); ?></p>
+				<a href="<?php echo the_field('footer_widget_3_button_link', 'option'); ?>" class="but transparent"><?php echo the_field('footer_widget_3_button_text', 'option'); ?></a>
+			</div>
+			
+			<div class="widget">
+				<h5 class="white"><?php echo the_field('footer_widget_3_b_title', 'option'); ?></h5>
+				<p><?php echo the_field('footer_widget_3_b_content', 'option'); ?></p>
+				<a href="<?php echo the_field('footer_widget_3_b_button_link', 'option'); ?>" class="but transparent"><?php echo the_field('footer_widget_3_b_button_text', 'option'); ?></a>
+			</div>
 		</div>
 		<?php endif; ?>
 		

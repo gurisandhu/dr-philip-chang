@@ -1,4 +1,5 @@
 @media screen and (max-width: 1300px){
+
 	.front-page-intro{
 		min-height: 650px;
 	}
@@ -8,14 +9,30 @@
 	.front-page-banner{
 		min-height: inherit;
 	}
-	
+	.desktop-menu{
+		display: none;
+	}
+	.desktop{
+		display: none;
+	}
+	.responsive{
+		display: block;
+	}
+	.responsive-menu{
+		padding-top: 140px;
+	}
+	.on-scrolled{
+		.responsive-menu{
+			padding-top: 85px;
+		}
+	}
 }//1300
 @media screen and (max-width: 1160px){
 
 	.logo{
 		width: 30%;
 	}
-	.intro, .testimonial, .pride{
+	.intro, .testimonial, .pride, .inner-banner{
 		background-attachment: inherit;
 	}
 	.col-4{
@@ -90,15 +107,7 @@
 }//1100
 @media screen and (max-width: 950px){
 
-	.desktop-menu{
-		display: none;
-	}
-	.desktop{
-		display: none;
-	}
-	.responsive{
-		display: block;
-	}
+	
 	.logo{
 		width: 55%;
 	}
@@ -130,7 +139,7 @@
 			width: 70%;
 		}
 	}
-	.category-banner, .single-banner{
+	.category-banner, .inner-banner{
 		min-height: 440px;
 	}
 	h1{
@@ -161,7 +170,7 @@
 	.slider-parallax-container{
 		margin-bottom: 395px;
 	}
-	.col-2{
+	.col-2, .custom-page .col-2{
 		width: 100%;
 		&:nth-of-type(2){
 			margin-top: 5%;
@@ -170,8 +179,9 @@
 			}
 		}
 	}
-	.col-3{
+	.col-3, .custom-page .col-3{
 		width: 100%;
+		margin-right: 0;
 	}
 	.custom-cols{
 		.row{
@@ -190,6 +200,18 @@
 	}
 	.two-third{
 		width: 100%;
+	}
+	.custom-page{
+		& .one-third{
+			& + .two-third{
+				padding-left: 0;
+			}
+		}
+		& .two-third{
+			& + .one-third{
+				padding-left: 0;
+			}
+		}
 	}
 	.container{
 		> .one-third{
@@ -268,7 +290,7 @@
 			width: 100%;
 		}
 	}
-	.category-banner, .single-banner{
+	.category-banner, .inner-banner{
 		min-height: 345px;
 	}
 	h1{
@@ -349,18 +371,23 @@
 	.front-page-intro{
 		min-height: 225px;
 		.parallax-content{
-			width: 100%;
-			left: 5%;
+			width: 85%;
+			left: 10%;
 		}
 		summary{
 			font-size: 18px;
 		}
 	}
-	.category-banner, .single-banner{
+	.category-banner, .inner-banner{
 		min-height: 225px;
 	}
 	h1{
 		font-size: 25px;
+	}
+	.swiper-button-white{
+		-webkit-background-size: 18px;
+		     -o-background-size: 18px;
+		        background-size: 18px;
 	}
 }//600
 @media screen and (max-width: 400px){
@@ -438,8 +465,8 @@
 			font-size: 14px;
 		}
 	}
-	.category-banner, .single-banner{
-		min-height: 110px;
+	.category-banner, .inner-banner{
+		min-height: 192px;
 	}
 	h1{
 		font-size: 18px;
@@ -453,5 +480,14 @@
 			}
 		}
 	}
-
+	.custom-page{
+		h1{
+			font-size: 35px;
+		}
+	}
+	.front-page-intro{
+		summary{
+			font-size: 11px;
+		}
+	}
 }//400

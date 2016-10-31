@@ -25,7 +25,10 @@ function my_scripts(){
 
   wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', null, null, true);
 
+
+    // check if ACF working properly after comminting out
    wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlfPgnC0Z0WBajAY03r5t94uwHecdsmfE&callback=initMap',null,null,true);
+
   wp_enqueue_script('googlemaps');
 }
 add_action('template_redirect', 'my_scripts');

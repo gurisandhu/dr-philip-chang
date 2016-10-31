@@ -24,11 +24,15 @@
 <body>
 
 	<!-- header fixed -->
-<?php if(!get_field('custom_banner')): ?>	
-	<header class="header-fixed shadow">
-	<?php else: ?>
-	<header class="header-fixed">
-<?php endif; ?>	
+	<?php if(is_page_template('template-custom.php')): ?>
+			<?php if(!get_field('custom_banner')): ?>	
+				<header class="header-fixed shadow">
+			<?php else: ?>
+				<header class="header-fixed">
+			<?php endif; ?>
+		<?php else: ?>	
+			<header class="header-fixed">
+	<?php endif; ?>
 	<!-- Top menu -->
 	<section class="top-menu desktop">
 		<div class="container">
