@@ -17,11 +17,15 @@
 		$the_query = new WP_Query( $args );
 		if ( $the_query->have_posts() ):
 		        _e("<h4>Search Results for: ".get_query_var('s')."</h4><br />");
-		        while ( $the_query->have_posts() ):
+		    ?>
+		    <div class="search-page">
+		    	
+		    
+		        <?php while ( $the_query->have_posts() ):
 		           $the_query->the_post();
 		                 ?>	
 		                 <div class="row">
-		                 	<h2><?php the_title(); ?></h2>
+		                 	<h4><?php the_title(); ?></h4>
 		                 	<?php $content_post = get_post();
 		                 		$content = $content_post->post_content;
 		                 		$post_id = $content_post->ID;
@@ -41,28 +45,18 @@
 		                 			}	
 							?>
 
-							
-							
-
-
-
-
-
-
-
-
-
 							<div class="row">
 								<a class="but-4 transparent-blue" href="<?php the_permalink(); ?>">Read More</a>
 							</div>
 		                 </div>
 		         <?php endwhile; ?>
 		<?php else: ?>         
-		        <h2>Nothing Found</h2>
+		        <h4>Nothing Found</h4>
 		        <div class="alert alert-info">
 		          <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
 		        </div>
 		<?php endif; ?>
+		</div>
 	</div>
 </section>
 

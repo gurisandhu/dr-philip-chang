@@ -351,8 +351,8 @@ get_header(); ?>
 							</div>
 						</div>
 					<?php endif; ?>
-						
-						<a class="address" href="<?php echo the_field('sidebar_2_building_address', 'option'); ?><?php echo the_field('sidebar_2_street_address', 'option'); ?><?php echo the_field('sidebar_2_suburb', 'option'); ?>">
+
+						<a class="address" target="_blank" href="http://maps.google.com/?q=<?php echo the_field('sidebar_2_building_address', 'option'); ?><?php echo the_field('sidebar_2_street_address', 'option'); ?><?php echo the_field('sidebar_2_suburb', 'option'); ?>">
 							<ul>
 								<li><?php echo the_field('sidebar_2_building_address', 'option'); ?></li>
 								<li><?php echo the_field('sidebar_2_street_address', 'option'); ?></li>

@@ -1,11 +1,58 @@
 <?php 
+// *************************
+// Make ACF content on search page
+// *************************
+function cf_search_join( $join ) {
+    global $wpdb;
+
+    if ( is_search() ) {    
+        $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+    }
+    
+    return $join;
+}
+add_filter('posts_join', 'cf_search_join' );
+
+/**
+ * Modify the search query with posts_where
+ *
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
+ */
+function cf_search_where( $where ) {
+    global $pagenow, $wpdb;
+   
+    if ( is_search() ) {
+        $where = preg_replace(
+            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+
+    return $where;
+}
+add_filter( 'posts_where', 'cf_search_where' );
+
+/**
+ * Prevent duplicates
+ *
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
+ */
+function cf_search_distinct( $where ) {
+    global $wpdb;
+
+    if ( is_search() ) {
+        return "DISTINCT";
+    }
+
+    return $where;
+}
+add_filter( 'posts_distinct', 'cf_search_distinct' );
 
 // *************************
 // Add links for stylesheet, fonts and scripts (Instead of inserting in <head> section or before </body>)
 // *************************
 
 function my_styles(){
-	wp_enqueue_style('drchang-font-awesome', 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.4.2');
+  wp_enqueue_style('drchang-font-awesome', 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.4.2');
 
     wp_enqueue_style('drchang-fonts-pop', 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
@@ -21,15 +68,14 @@ add_action('template_redirect', 'my_styles');
 //end of styles
 
 function my_scripts(){
-	wp_enqueue_script( 'drchang-swiper', get_bloginfo('template_directory') . '/library/swiper.min.js', null, null, true);
+  wp_enqueue_script( 'drchang-swiper', get_bloginfo('template_directory') . '/library/swiper.min.js', null, null, true);
 
+  wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlfPgnC0Z0WBajAY03r5t94uwHecdsmfE&callback=initMap',null,null,true);
+  
   wp_enqueue_script( 'drchang-script', get_bloginfo('template_directory') . '/compressed/script.js', null, null, true);
 
-
     // check if ACF working properly after comminting out
-   wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlfPgnC0Z0WBajAY03r5t94uwHecdsmfE&callback=initMap',null,null,true);
-
-  wp_enqueue_script('googlemaps');
+   
 }
 add_action('template_redirect', 'my_scripts');
  //end of my_scripts
@@ -99,5 +145,3 @@ if (function_exists('acf_add_options_page')){
   add_shortcode('wpb_childpages', 'wpb_list_child_pages');
   
  ?>
-
- 

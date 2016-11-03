@@ -158,32 +158,59 @@ $(document).ready(function(){
     $(".map-wrapper").mouseleave(function () {
       $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
     });
-  });//end of document ready
 
+});//end of document ready
 
+// //////////
 // Google Map
+// //////////
+var geocoder;
+var map;
 var address;
 
 function initMap() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var myOptions = {
+    zoom: 13,
+    center: latlng,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+    navigationControl: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("map"), myOptions);
+  if (geocoder) {
+    geocoder.geocode({
+      'address': address
+    }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+          map.setCenter(results[0].geometry.location);
 
-   var map = new google.maps.Map(document.getElementById('map'), { 
-       mapTypeId: google.maps.MapTypeId.TERRAIN,
-       zoom: 13
-   });
+          var infowindow = new google.maps.InfoWindow({
+            content: '<b>' + address + '</b>',
+            size: new google.maps.Size(150, 50)
+          });
 
-   var geocoder = new google.maps.Geocoder();
-
-   geocoder.geocode({
-      'address': address;
-   }, 
-   function(results, status) {
-      if(status == google.maps.GeocoderStatus.OK) {
-         new google.maps.Marker({
+          var marker = new google.maps.Marker({
             position: results[0].geometry.location,
-            map: map
-         });
-         map.setCenter(results[0].geometry.location);
-      }
-   });
-}
+            map: map,
+            title: address
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+          });
 
+        } else {
+          alert("No results found");
+        }
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+}
+google.maps.event.addDomListener(window, 'load', initMap);

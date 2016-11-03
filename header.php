@@ -17,8 +17,8 @@
 		}
 		</style>
 	<![endif]-->
-	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="<?php echo esc_url( home_url( '/' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
 	<?php wp_head(); ?>
 </head>
 <body>
@@ -51,7 +51,7 @@
 	<section class="main-header">
 		<div class="container">
 			<div class="logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/logo.svg" title="Dr Chang" alt="Dr Chang Logo"></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/logo.png" title="Dr Chang" alt="Dr Chang Logo"></a>
 			</div>
 
 			<?php include (TEMPLATEPATH . '/menu-main.php'); ?>
@@ -79,3 +79,4 @@
 			</form></div>	
 	</div>
 </div>
+
