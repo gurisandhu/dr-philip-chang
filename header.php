@@ -37,11 +37,11 @@
 	<section class="top-menu desktop">
 		<div class="container">
 			<ul>
-				<li><a href="#">About Dr Chang</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about-us">About Dr Chang</a></li>
 				<li><a class="toggle-button-2" href="#">Search</a></li>
-				<li><a href="#">For Patients</a></li>
-				<li><a href="#">For Professionals</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>for-patients">For Patients</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>for-professionals">For Professionals</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>contact">Contact</a></li>
 				<li><a href="tel:+61283826080">+61 2 8382 6080</a></li>
 			</ul>
 		</div>
@@ -60,24 +60,12 @@
 	</section>
 	<section class="toggle-content-2 search-input desktop">
 		<div class="container">
-			<form class="row" action="<?php //echo home_url('/'); ?>" method="get" role="search">
-				<input class="row" type="text" placeholder="Start typing ...">
-				<summary class="row">Press Enter to begin your search</summary>
+			<form class="row" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<div>
+					<input class="row search-input" type="text" value="" name="s" id="s" placeholder="Start typing ..." />
+					<summary class="row">Press Enter to begin your search</summary>
+				</div>
 			</form>
-
-<!-- <form role="search" method="get" class="search-form" action="<?php //echo home_url( '/' ); ?>">
-    <label>
-        <span class="screen-reader-text"><?php //echo _x( 'Search for:', 'label' ) ?></span>
-        <input type="search" class="search-field"
-            placeholder="<?php //echo esc_attr_x( 'Search …', 'placeholder' ) ?>"
-            value="<?php// echo get_search_query() ?>" name="s"
-            title="<?php// echo esc_attr_x( 'Search for:', 'label' ) ?>" />
-    </label>
-    <input type="submit" class="search-submit"
-        value="<?php //echo esc_attr_x( 'Search', 'submit button' ) ?>" />
-</form> -->
-
-
 		</div>
 </section>
 </header>
@@ -86,6 +74,8 @@
 		<nav>
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 		</nav>
-		<div class="row search"><input type="text" placeholder="Start typing . . ."></div>	
+		<div class="row search"><form class="row" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<input class="row" type="text" value="" name="s" id="s" placeholder="Start typing ..." />
+			</form></div>	
 	</div>
 </div>

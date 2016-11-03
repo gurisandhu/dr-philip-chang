@@ -47,6 +47,52 @@ body{
   margin: 0;
   padding: 0;
 }
+body, .parallax, .front-page-intro{
+	-webkit-animation: smooth 1s;
+       -moz-animation: smooth 1s;
+         -o-animation: smooth 1s;
+            animation: smooth 1s;
+}
+@-webkit-keyframes smooth{
+	from {
+		opacity: 0;
+		background-color: rgb(32, 39, 109);
+	}
+	to {
+		opacity: 1;
+		background-color: rgb(32, 39, 0);
+	}
+}
+@-moz-keyframes smooth{
+	from {
+		opacity: 0;
+		background-color: rgb(32, 39, 109);
+	}
+	to {
+		opacity: 1;
+		background-color: rgb(32, 39, 0);
+	}
+}
+@-o-keyframes smooth{
+	from {
+		opacity: 0;
+		background-color: rgb(32, 39, 109);
+	}
+	to {
+		opacity: 1;
+		background-color: rgb(32, 39, 0);
+	}
+}
+@keyframes smooth{
+	from {
+		opacity: 0;
+		background-color: rgb(32, 39, 109);
+	}
+	to {
+		opacity: 1;
+		background-color: rgba(0, 95, 171, 0);
+	}
+}
 .hide-body{
 	&.toggle-hide-body{
 		position: fixed;
@@ -281,6 +327,28 @@ blockquote{
 							border-color: white;
 						}
 					}
+					a{
+						&:after{
+							position: relative;
+							content: "";
+						    border: 1px solid rgba(255,255,255,0);
+						    bottom: 0;
+						    display: block;
+						    margin: 0 auto;
+						    width: 0;
+						    -webkit-transition: all 280ms ease-in-out;
+						    -moz-transition: all 280ms ease-in-out;
+						    -ms-transition: all 280ms ease-in-out;
+						    -o-transition: all 280ms ease-in-out;
+						    transition: all 280ms ease-in-out;
+						}
+						 &:hover{
+						  	&:after{
+						  		border: 1px solid $grey;
+						  		width: 70px;
+						  	}
+						  }
+					}
 				}
 			}
 		}
@@ -315,7 +383,6 @@ blockquote{
 		border-bottom: 2px solid transparent;
 		&:hover{
 			color: darken($grey, 40%);
-			border-bottom: 2px solid darken($grey, 40%);
 		}
 	}
 }//end of desktop-menu
@@ -1132,6 +1199,7 @@ h6.toggle-button{
 	@include placeholder($dark-blue-3);
 	padding: 40px 0 12px;
 	color: $dark-blue-3;
+	outline: none;
 	input{
 		border: none;
 		background-color: $dark-blue-4;

@@ -8,6 +8,7 @@ $(document).ready(function(){
   $(".toggle-button-2").click(function(){
     $(".toggle-content-2").slideToggle();
     $(".hide-body").toggleClass("toggle-hide-body");
+    $("input.search-input").focus();
   });
   
 
@@ -16,7 +17,7 @@ $(document).ready(function(){
       $(this).click(function(){
         $(this).next(".toggle-content").slideToggle();
         $(this).toggleClass("show");
-      })
+      });
     // $(this).find('.toggle-content').slideToggle();
   });
 
@@ -159,6 +160,7 @@ $(document).ready(function(){
     });
   });//end of document ready
 
+
 // Google Map
 var address;
 
@@ -183,7 +185,5 @@ function initMap() {
          map.setCenter(results[0].geometry.location);
       }
    });
-    }
-
-
+}
 
