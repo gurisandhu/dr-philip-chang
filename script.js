@@ -98,8 +98,8 @@ $(document).ready(function(){
         if (scrolledHeight > topPos){
           var resetScroll = topPos - ($(window).scrollTop());
           if (topPos < 200){
-            var newPos = thisPos - ($(window).scrollTop()/10);
-            thisEle.css('background-position', 'center ' + newPos+'px');
+            var newPos = thisPos + ($(window).scrollTop()/22);
+            thisEle.css('background-position', 'center ' + newPos+'%');
           } else {
             resetScroll = (topPos - clientHeight + 88) - ($(window).scrollTop());
             var newPos = thisPos + (resetScroll/6);

@@ -9,7 +9,7 @@ get_header();
 
 <?php $singleBanner = get_field('single_template_banner'); ?>
 
-<?php if($catBanner): ?>
+<?php if($singleBanner): ?>
 	<!-- Template: archive.php -->
 	<section class="banner parallax inner-banner" style="background-image: url('<?php echo $singleBanner; ?>');">
 		<div class="container">

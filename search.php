@@ -1,12 +1,7 @@
 <?php get_header(); ?>
  <!-- Template: search.php -->
- <section class="banner parallax inner-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/IMG_0281.JPG');">
-	<div class="container">
-		<!-- No text here -->
-	</div>
-</section>
 
-<section class="custom-page">
+<section class="custom-page no-banner">
 	<div class="container">
 		<?php
 		$s=get_search_query();

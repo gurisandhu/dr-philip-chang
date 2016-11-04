@@ -30,6 +30,8 @@
 			<?php else: ?>
 				<header class="header-fixed">
 			<?php endif; ?>
+		<?php elseif(is_search()): ?>	
+			<header class="header-fixed shadow">
 		<?php else: ?>	
 			<header class="header-fixed">
 	<?php endif; ?>

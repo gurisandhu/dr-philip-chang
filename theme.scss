@@ -296,12 +296,13 @@ blockquote{
 	img{
 		@include transition(0.8s);
 		width: 100%;
+		width: 390px;
 	}
 }
 .desktop-menu{
 	@include transition(0.8s);
 	float: right;
-	width: 70%;
+	width: 69.8%;
 	padding: 1.8% 0 1% 1%;
 	> nav{
 		> div{
@@ -345,7 +346,7 @@ blockquote{
 						 &:hover{
 						  	&:after{
 						  		border: 1px solid $grey;
-						  		width: 70px;
+						  		width: 70%;
 						  	}
 						  }
 					}
@@ -927,7 +928,7 @@ body.customize-support{
 		}
 	}
 	.but-2, .but{
-		margin-bottom: 20px;
+		// margin-bottom: 20px; check on Surgery page
 	}
 	.address{
 		color: black;
@@ -957,7 +958,7 @@ body.customize-support{
 	.template-2-page{
 		& > .row{
 			&:first-child{
-				margin-bottom: 5%;
+				// margin-bottom: 5%;
 			}
 		}
 	}
@@ -1064,7 +1065,7 @@ body.customize-support{
 // Category page
 .inner-banner{
 	min-height: 465px;
-    background-position: center 0px;
+    background-position: center 50%;
 	@extend .common-banner;
 	background-attachment: fixed;
 }
@@ -1123,6 +1124,9 @@ body.customize-support{
 		a{
 			@extend .but-4;
 			@extend .transparent-blue;
+		}
+		.children{
+			display: none;
 		}
 	}
 }
