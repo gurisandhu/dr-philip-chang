@@ -130,14 +130,5 @@ if (function_exists('acf_add_options_page')){
     ));
   add_filter('menu_order', 'custom_menu_order', 99);
 }
-
-  function wpb_list_child_pages() {
-    global $post;
-      $children = wp_list_pages('title_li=&child_of='.$post->ID.'&echo=0');
-      if ($children){
-        echo $children;
-      }
-    }
-  add_shortcode('wpb_childpages', 'wpb_list_child_pages');
   
  ?>

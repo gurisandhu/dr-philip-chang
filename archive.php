@@ -41,7 +41,16 @@ global $post;
 		</div>
 		
 		<ul class="child-pages row">
-			<?php wpb_list_child_pages(); ?>
+			<?php
+				global $post;
+					wp_list_pages(array(
+						'title_li'    => '',
+						'child_of'    => $post->ID,
+						'show_date'   => 'modified',
+						'date_format' => $date_format,
+						'depth' 	  => 1
+					));
+			?>
 		</ul>
 	</div>
 </section>
