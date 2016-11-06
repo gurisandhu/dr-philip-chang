@@ -8,6 +8,7 @@
 	}
 	.front-page-banner{
 		min-height: inherit;
+		margin-top: 61px!important;
 	}
 	.desktop-menu{
 		display: none;
@@ -26,14 +27,12 @@
 			padding-top: 85px;
 		}
 	}
+
 }//1300
 @media screen and (max-width: 1160px){
 
 	.logo{
 		width: 30%;
-	}
-	.intro, .testimonial, .pride, .inner-banner{
-		background-attachment: inherit;
 	}
 	.col-4{
 		width: 50%;
@@ -155,7 +154,10 @@
 }
 
 @media screen and (max-width: 780px){
-
+	.intro, .testimonial, .pride, .inner-banner, .parallax{
+		background-attachment: inherit;
+		background-position: center!important;
+	}
 	.banner{
 		margin-top: 55px;
 	}
@@ -284,6 +286,7 @@
 		min-height: 345px;
 		.parallax-content{
 			width: 80%;
+			padding-top: 19%;
 		}
 		summary{
 			font-size: 25px;
@@ -300,6 +303,9 @@
 		top: 20px;
 		width: 49px;
 	}
+	.responsive-menu{
+		padding-top: 100px;
+	}
 }//780
 @media screen and (max-width: 600px){
 
@@ -313,7 +319,6 @@
 		top: 12px;
 		width: 43px;
 	}
-	
 	.on-scrolled{
 		.menu-button{
 			top: 0px;
@@ -389,6 +394,9 @@
 		     -o-background-size: 18px;
 		        background-size: 18px;
 	}
+	.front-page-banner{
+		margin-top: 27px!important;
+	}
 }//600
 @media screen and (max-width: 400px){
 	.banner{
@@ -423,8 +431,8 @@
 		}
 	}
 	.padding-t-b{
-		padding-top: 20%;
-		padding-bottom: 20%;
+		padding-top: 12%;
+		padding-bottom: 12%;
 	}
 	footer{
 		text-align: center;
@@ -489,5 +497,8 @@
 		summary{
 			font-size: 11px;
 		}
+	}
+	.front-page-banner{
+		margin-top: 17px!important;
 	}
 }//400

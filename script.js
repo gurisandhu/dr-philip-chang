@@ -111,12 +111,20 @@ $(document).ready(function(){
         }
       });
     });//parallax
+    
+    $('.front-page-intro').addClass('show-loader');
+
+    $('.front-page-intro').attr('style').on('load', function(){
+        $('.front-page-intro').removeClass('show-loader');
+      });
 
     // Slider parallax
     $('.slider-parallax').each(function(){
       var slider = $(this);
       var topPos = slider.offset().top;
       var eleHeight = slider.height();
+
+      
 
       $(window).scroll(function(){
         var scrolledHeight = $(window).scrollTop();

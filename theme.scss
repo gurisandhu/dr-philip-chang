@@ -48,10 +48,10 @@ body{
   padding: 0;
 }
 body{
-	-webkit-animation: smooth 1s;
-       -moz-animation: smooth 1s;
-         -o-animation: smooth 1s;
-            animation: smooth 1s;
+	-webkit-animation: smooth 2s;
+       -moz-animation: smooth 2s;
+         -o-animation: smooth 2s;
+            animation: smooth 2s;
 }
 @-webkit-keyframes smooth{
 	from {
@@ -601,6 +601,36 @@ blockquote{
 		-moz-box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 		box-shadow: inset 223px 0px 336px -2px rgba(32,39,109,0.5);
 	}
+	&.show-loader{
+		position: relative;
+		&:before{
+			background: #2c539e; /* Old browsers */
+			background: -moz-linear-gradient(top,  #2c539e 0%, #2c539e 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #2c539e 0%,#2c539e 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #2c539e 0%,#2c539e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 ); /* IE6-9 */
+			-webkit-box-shadow: none;
+			        box-shadow: none;
+		}
+		&:after{
+			content: "\f110";
+			font-family: FontAwesome;
+			display: block;
+			color: white;
+			position: absolute;
+			top: 50%;
+			font-size: 55px;
+			left: 45%;
+			z-index: 1;
+		-webkit-animation: fa-spin 2s infinite linear;
+		   -moz-animation: fa-spin 2s infinite linear;
+		     -o-animation: fa-spin 2s infinite linear;
+		        animation: fa-spin 2s infinite linear;
+		}
+		.parallax-content{
+			display: none;
+		}
+	}
 }
 .slider-parallax-container{
 	margin-bottom: 835px;
@@ -1124,9 +1154,6 @@ body.customize-support{
 		a{
 			@extend .but-4;
 			@extend .transparent-blue;
-		}
-		.children{
-			display: none;
 		}
 	}
 }
