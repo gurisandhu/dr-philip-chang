@@ -39,7 +39,7 @@ $garamond: 'Cormorant Garamond', serif;
 }
 
 body{
-	@include transition(0.8s);
+	@include transition(0.3s);
   font-family: $open;
   background: white;
   color: $body-font;
@@ -283,7 +283,7 @@ blockquote{
 	}
 }
 .main-header{
-	@include transition(0.8s);
+	@include transition(0.3s);
 	background-color: white;
 	padding-top: 1.5%;
 	padding-bottom: 1.5%;
@@ -294,13 +294,13 @@ blockquote{
 	float: left;
 	width: 30%;
 	img{
-		@include transition(0.8s);
+		@include transition(0.3s);
 		width: 100%;
 		width: 390px;
 	}
 }
 .desktop-menu{
-	@include transition(0.8s);
+	@include transition(0.3s);
 	float: right;
 	width: 69.8%;
 	padding: 1.8% 0 1% 1%;
@@ -358,7 +358,7 @@ blockquote{
 		}
 	}
 	ul{
-		@include transition(0.8s);
+		@include transition(0.3s);
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -366,7 +366,7 @@ blockquote{
 		float: right;
 	}
 	li{
-		@include transition(0.8s);
+		@include transition(0.3s);
 		margin: 0;
 		padding: 0;
 		float: left;
