@@ -11,7 +11,7 @@ get_header();
 	<!-- Intro Banner -->
 	<section class="slider-parallax-container">
 		<section class="slider-parallax">
-			<div class="front-page-banner banner swiper-container">
+			<div class="front-page-banner swiper-container">
 				<div class="swiper-wrapper">
 					<?php while (have_rows('front_page_slider')): the_row();
 						$title 	= get_sub_field('front_slider_title');

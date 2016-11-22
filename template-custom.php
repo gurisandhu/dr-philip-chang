@@ -7,11 +7,14 @@ get_header(); ?>
 <?php $customBanner = get_field('custom_banner'); ?>
 
 <?php if($customBanner): ?>
-	<!-- Template: archive.php -->
-	<section class="banner parallax inner-banner" style="background-image: url('<?php echo $customBanner; ?>');">
-		<div class="container">
-			<!-- No text here -->
-		</div>
+	<section class="inner-banner-container">
+		<section class="inner-banner-fixed">
+			<section class="inner-banner show-loader" style="background-image: url('<?php echo $customBanner; ?>');">
+					<div class="container">
+						<!-- No text here -->
+					</div>
+				</section>
+		</section>
 	</section>
 	<section class="custom-page">
 	<?php else: ?>

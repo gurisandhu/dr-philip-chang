@@ -83,7 +83,7 @@ $(document).ready(function(){
 
     var bodyHeight      = $('body').height();
     var clientHeight    = $(window).innerHeight();
-    $('.parallax').each(function(){
+    $('.inner-banner-fixed').each(function(){
       var thisEle = $(this);
       var childEle = thisEle.find('.parallax-content');
       var topPos = thisEle.offset().top;
@@ -162,6 +162,7 @@ $(document).ready(function(){
     $(window).bind("load", function() {
       // $('.front-page-intro').removeClass('show-loader');
       $('.front-page-intro').removeClass('show-loader');
+      $('.inner-banner').removeClass('show-loader');
     });
     
 

@@ -325,7 +325,10 @@ blockquote{
 					}
 					&.current-menu-item, &.current-menu-ancestor{
 						> a{
-							border-color: white;
+							&:after{
+						  		border: 1px solid $grey;
+						  		width: 70%;
+						  	}
 						}
 					}
 					a{
@@ -633,12 +636,21 @@ blockquote{
 	}
 }
 .slider-parallax-container{
-	margin-bottom: 835px;
+	margin-bottom: 745px;
 }
-.slider-parallax{
+.inner-banner-container{
+	height: 465px;
+	margin-top: 158px;
+	@include transition(.3s);
+}
+.inner-banner-fixed{
+	top: 158px;
+	@include transition(.3s);
+}
+
+.slider-parallax, .inner-banner-fixed{
 	position: fixed;
 	overflow: auto;
-	z-index: 0;
 	z-index: 0;
 	-webkit-transform: translate3d(0,0px,0);
 	   -moz-transform: translate3d(0,0px,0);
@@ -724,6 +736,9 @@ blockquote{
 	}
 	.but-2{
 		float: right;
+	}
+	.two-third{
+		width: 64%;
 	}
 }
 .verticalAlign{
@@ -826,22 +841,6 @@ footer{
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer-menu{
 	ul{
 		list-style: none;
@@ -891,10 +890,16 @@ footer{
 	.responsive-menu{
 		padding-top: 60px;
 	}
+	.inner-banner-fixed{
+		top: 80px;
+	}
 }//end of on-scrolled
 body.customize-support{
 	.header-fixed{
 		top: 32px;
+	}
+	.inner-banner-container{
+		margin-top: 126px;
 	}
 }
 .banner{
@@ -903,6 +908,7 @@ body.customize-support{
 }
 .custom-page{
 	@extend .padding-t-b;
+	background-color: #FFF;
 	.container{
 		&>.two-third{
 			padding-right: 3%;
@@ -1095,9 +1101,9 @@ body.customize-support{
 // Category page
 .inner-banner{
 	min-height: 465px;
-    background-position: center 50%;
+    background-position: center 20%;
 	@extend .common-banner;
-	background-attachment: fixed;
+	// background-attachment: fixed;
 }
 .category-title{
 	background-color: $creame;
@@ -1127,6 +1133,7 @@ body.customize-support{
 .service-list{
 	@extend .padding-t-b;
 	text-align: center;
+	background-color: white;
 	ul{
 		list-style: none;
 		margin: 0;
@@ -1137,8 +1144,14 @@ body.customize-support{
 			margin-right: 2%;
 			margin-bottom: .5%;
 			display: table;
-			&:nth-child(3n+3){
+			&:first-child{
+				clear: left;
+			}
+			&:nth-of-type(3n+3){
 				margin-right: 0;
+			}
+			&:nth-of-type(3n+4){
+				clear: left;
 			}
 			a{
 				width: 100%;
@@ -1163,6 +1176,7 @@ body.customize-support{
 }
 .single-content{
 	@extend .padding-t-b;
+	background-color: white;
 	h1{
 		font-size: 40px;
 		font-weight: 600;

@@ -12,16 +12,24 @@ global $post;
 
 <?php if($catBanner): ?>
 	<!-- Template: archive.php -->
-	<section class="banner parallax inner-banner" style="background-image: url('<?php echo $catBanner; ?>');">
-		<div class="container">
-			<!-- No text here -->
-		</div>
+	<section class="inner-banner-container">
+		<section class="inner-banner-fixed">
+			<section class="inner-banner show-loader" style="background-image: url('<?php echo $catBanner; ?>');">
+					<div class="container">
+						<!-- No text here -->
+					</div>
+				</section>
+		</section>
 	</section>
 	<?php else: ?>
-		<section class="banner parallax inner-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/IMG_0281.JPG');">
-		<div class="container">
-			<!-- No text here -->
-		</div>
+	<section class="inner-banner-container">
+		<section class="inner-banner-fixed">
+			<section class="inner-banner show-loader" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/IMG_0281.JPG');">
+					<div class="container">
+						<!-- No text here -->
+					</div>
+				</section>
+		</section>
 	</section>
 <?php endif; ?>
 

@@ -9,6 +9,6 @@
 
 
 /*
-To EDIT the style sheet please use theme.scss file in root directory. Also needs to run Gulp to compress the style sheet to 'theme.css' file.
+To EDIT the style sheet please use theme.scss file in root directory. Also needs to run Gulp to compress the style sheet to 'compressed/theme.css' file.
 */
 @import 'compressed/theme.css';

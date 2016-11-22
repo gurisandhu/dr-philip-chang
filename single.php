@@ -11,16 +11,24 @@ get_header();
 
 <?php if($singleBanner): ?>
 	<!-- Template: archive.php -->
-	<section class="banner parallax inner-banner" style="background-image: url('<?php echo $singleBanner; ?>');">
-		<div class="container">
-			<!-- No text here -->
-		</div>
+	<section class="inner-banner-container">
+	<section class="inner-banner-fixed">
+		<section class="inner-banner show-loader" style="background-image: url('<?php echo $singleBanner; ?>');">
+				<div class="container">
+						<!-- No text here -->
+				</div>
+				</section>
+		</section>
 	</section>
 	<?php else: ?>
-	<section class="banner parallax inner-banner" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/Dr-Chang-Set-2116.jpg');">
-		<div class="container">
-		<!-- No text here -->
-		</div>
+		<section class="inner-banner-container">
+			<section class="inner-banner-fixed">
+				<section class="inner-banner show-loader" style="background-image: url('<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/Dr-Chang-Set-2116.jpg');">
+					<div class="container">
+							<!-- No text here -->
+					</div>
+				</section>
+		</section>
 	</section>
 <?php endif; ?>
 

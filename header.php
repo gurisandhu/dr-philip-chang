@@ -17,8 +17,8 @@
 		}
 		</style>
 	<![endif]-->
-	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="<?php echo esc_url( home_url( '' ) ); ?>/wp-content/uploads/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/fevicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/fevicon.ico" type="image/x-icon">
 	<?php wp_head(); ?>
 </head>
 <body>
@@ -40,10 +40,10 @@
 		<div class="container">
 			<ul>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about-us">About Dr Chang</a></li>
-				<li><a class="toggle-button-2" href="#">Search</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>for-patients">For Patients</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>for-professionals">For Professionals</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>contact">Contact</a></li>
+				<li><a class="toggle-button-2" href="#">Search</a></li>
 				<li><a href="tel:+61283826080">+61 2 8382 6080</a></li>
 			</ul>
 		</div>
